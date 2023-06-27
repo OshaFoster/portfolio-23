@@ -1,18 +1,17 @@
-import styled, { keyframes } from 'styled-components';
+import { useRef } from 'react';
+import styled from 'styled-components';
 import _ from 'lodash';
 import StackComp from '../StackComp';
-import { Text, ThinTitle, TextWrap } from '@/styles/shared';
+import { motion } from 'framer-motion';
+
+import {
+  Text,
+  ThinTitle,
+  TextWrap,
+  AnimatedComponentWrap,
+  TitleWrap,
+} from '@/styles/shared';
 import { stacks } from '@/context/data';
-
-const ComponentWrap = styled.div`
-  margin-top: 60px;
-`;
-
-const TitleWrap = styled.div`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-`;
 
 const ImageContainer = styled.div`
   display: flex;
@@ -22,16 +21,6 @@ const ImageContainer = styled.div`
   height: 300px;
   margin-top: 20px;
   /* background-color: pink; */
-`;
-const hoverAnimation = keyframes`
-  from {
-    transform: scale(1);
-    z-index: 1;
-  }
-  to {
-    transform: scale(2);
-    z-index: 2;
-  }
 `;
 
 const ImageWrap = styled.div`
@@ -45,17 +34,17 @@ const ImageWrap = styled.div`
   /* background-color: orange; */
 
   &:hover {
-    transform: scale(2);
     z-index: 2;
-    box-shadow: 0 0 25px #111729;
+    box-shadow: 0 0 15px black;
   }
 `;
+
+const AnimatedImage = motion(ImageWrap);
 
 const Image = styled.img`
   width: 100%;
   height: 100%;
   object-fit: contain;
-  animation: ${hoverAnimation} 0.4s ease-in-out;
 `;
 
 const dndImages = [
@@ -78,15 +67,25 @@ const hndImages = [
 
 const mapImages = (images) =>
   _.map(images, (img) => (
-    <ImageWrap key={img.alt}>
+    <AnimatedImage
+      key={img.alt}
+      whileHover={{ scale: 2 }}
+      transition={{ duration: 0.3, type: 'tween' }}
+    >
       <Image src={img.src} alt={img.alt} />
-    </ImageWrap>
+    </AnimatedImage>
   ));
 
 export default function DigNDirt() {
+  const scrollRef = useRef(null);
   return (
     <>
-      <ComponentWrap>
+      <AnimatedComponentWrap
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 1 }}
+        viewport={{ root: scrollRef, once: false }}
+      >
         <TitleWrap>
           <ThinTitle>DigNDirt</ThinTitle>
         </TitleWrap>
@@ -100,8 +99,13 @@ export default function DigNDirt() {
           </Text>
           <StackComp stack={stacks.dnd} />
         </TextWrap>
-      </ComponentWrap>
-      <ComponentWrap>
+      </AnimatedComponentWrap>
+      <AnimatedComponentWrap
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 1 }}
+        viewport={{ root: scrollRef, once: false }}
+      >
         <TitleWrap>
           <ThinTitle>Equipment Tracker</ThinTitle>
         </TitleWrap>
@@ -114,8 +118,13 @@ export default function DigNDirt() {
           </Text>
           <StackComp stack={stacks.dnd} />
         </TextWrap>
-      </ComponentWrap>
-      <ComponentWrap>
+      </AnimatedComponentWrap>
+      <AnimatedComponentWrap
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 1 }}
+        viewport={{ root: scrollRef, once: false }}
+      >
         <TitleWrap>
           <ThinTitle>HaulNDirt</ThinTitle>
         </TitleWrap>
@@ -129,7 +138,7 @@ export default function DigNDirt() {
           </Text>
           <StackComp stack={stacks.dnd} />
         </TextWrap>
-      </ComponentWrap>
+      </AnimatedComponentWrap>
     </>
   );
 }

@@ -7,29 +7,24 @@ import MeritMedical from '../components/MeritMedical';
 import HilaryWatts from '../components/HilaryWatts';
 import Stepite from '../components/Stepite';
 import DigNDirt from '../components/DigNDirt';
-import FullStack from '../components/FullStack';
-import { Title, ThinTitle, Text, DateText, Decoration } from '../styles/shared';
-import { colors } from '../styles/colors';
+import Skills from '../components/Skills';
+import About from '../components/About';
+import Header from '../components/Header';
+import Connect from '../components/Connect';
+import Footer from '../components/Footer';
+import { Title, ThinTitle, DateText, Decoration } from '../styles/shared';
 
 // const inter = Inter({ subsets: ['latin'] });
 // const light = Oswald({ weight: '200', subsets: ['latin'] });
-
+// TODO: footer, responsive, animate, contact, linkedin
 const PageWrap = styled.div`
-  height: 100vh;
+  height: 90vh;
   width: 95%;
   margin: auto;
-  background-color: white;
+  /* background-color: white; */
   display: flex;
   flex-direction: column;
   overflow: hidden;
-`;
-
-const Header = styled.div`
-  /* width: 90%; */
-  margin: auto;
-  background-color: pink;
-  box-sizing: border-box;
-  height: 25%;
 `;
 
 const ContentWrap = styled.div`
@@ -43,17 +38,18 @@ const LeftWrap = styled.div`
   height: 100vh;
   width: 35%;
   margin: auto;
-  background-color: yellow;
+  /* background-color: yellow; */
   padding-right: 90px;
   box-sizing: border-box;
 `;
 
 const RightWrap = styled.div`
-  height: 100vh;
+  height: 85vh;
   width: 65%;
   margin: auto;
+  margin-top: 180px;
   overflow: scroll;
-  background-color: green;
+  /* background-color: green; */
   box-sizing: border-box;
   position: relative;
 `;
@@ -85,38 +81,10 @@ export default function Home() {
       <PageWrap>
         <ContentWrap>
           <LeftWrap>
-            <Header>
-              <Title>Osha Foster</Title>
-              <ThinTitle>Software Engineer</ThinTitle>
-              <Decoration />
-            </Header>
-            <ThinTitle>About Me</ThinTitle>
-            <Decoration />
-
-            <Text>
-              As a
-              <span
-                style={{
-                  color: colors.decorationLight,
-                  opacity: 1,
-                }}
-              >
-                &nbsp;skilled software engineer,&nbsp;
-              </span>
-              I have a proven track record of spotting problems early and manage
-              teams to deliver quality software. I am a
-              <span
-                style={{
-                  color: colors.decorationLight,
-                  opacity: 1,
-                }}
-              >
-                &nbsp;natural problem solver&nbsp;
-              </span>
-              who enjoys collaborating with clients, team members, and
-              subcontractors to create better products. For example, I
-            </Text>
-            <FullStack />
+            <Header />
+            <About />
+            <Skills />
+            <Connect />
           </LeftWrap>
           <RightWrap>
             <StickyWrap>
@@ -134,6 +102,7 @@ export default function Home() {
               <Title>DigNDirt</Title>
               <DateText>&nbsp;July 2018 - July 2020</DateText>
               <DigNDirt />
+              <Footer/>
             </RightContent>
           </RightWrap>
         </ContentWrap>

@@ -1,15 +1,17 @@
-import React, { useState, useEffect } from 'react';
-import styled, { keyframes } from 'styled-components';
+import { useRef } from 'react';
+import styled from 'styled-components';
 import _ from 'lodash';
 import StackComp from '../StackComp';
 import { Text, ThinTitle, TextWrap } from '../../styles/shared';
 import { colors } from '../../styles/colors';
-import { motion, useAnimation } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { stacks } from '@/context/data';
 
 const ComponentWrap = styled.div`
   margin-top: 60px;
 `;
+
+const AnimatedComponentWrap = motion(ComponentWrap);
 
 const TitleWrap = styled.div`
   display: flex;
@@ -55,47 +57,29 @@ const images = [
   { src: '/static/images/mm4.png', alt: 'mm img 4' },
 ];
 
-const mapImages = ({ isScrolling, controls }) =>
+const mapImages = () =>
   _.map(images, (img) => (
     <AnimatedImage
       key={img.alt}
-      whileHover={isScrolling ? { scale: 0 } : { scale: 2 }}
-      transition={{ duration: 0.3, type: 'tween' }}
+      whileHover={{ scale: 2 }}
     >
       <Image src={img.src} alt={img.alt} />
     </AnimatedImage>
   ));
 
 export default function MeritMedical() {
-  const [isScrolling, setIsScrolling] = useState(false);
-  const controls = useAnimation();
-  console.log(stacks);
-  console.log(stacks.meritMedical);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 0) {
-        console.log('this is happening');
-        setIsScrolling(true);
-        controls.stop();
-      } else {
-        setIsScrolling(false);
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll);
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, [controls]);
-
+  const scrollRef = useRef(null)
   return (
-    <ComponentWrap>
+    <AnimatedComponentWrap
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      transition={{ duration: 1 }}
+      viewport={{ root: scrollRef, once: false }}
+    >
       <TitleWrap>
         <ThinTitle>Merit Medical</ThinTitle>
       </TitleWrap>
-      <ImageContainer>{mapImages(isScrolling, controls)}</ImageContainer>
+      <ImageContainer>{mapImages()}</ImageContainer>
       <TextWrap>
         <Text>
           LeaddeveloperofaReactNativeapplicationforthewebthatallowedclients to
@@ -124,6 +108,6 @@ export default function MeritMedical() {
         </Text>
         <StackComp stack={stacks.meritMedical} />
       </TextWrap>
-    </ComponentWrap>
+    </AnimatedComponentWrap>
   );
 }

@@ -12,17 +12,7 @@ import {
 import { colors } from '../../styles/colors';
 import { stacks } from '@/context/data';
 
-const LinkWrap = styled.div`
-  height: 40px;
-  display: flex;
-  align-items: center;
-`;
-const LinkTo = styled.a`
-  color: ${colors.highlight};
-  font-size: 18px;
-`;
-
-export default function Stepite() {
+export default function Footer() {
   const scrollRef = useRef(null);
   return (
     <AnimatedComponentWrap
@@ -31,19 +21,11 @@ export default function Stepite() {
       transition={{ duration: 1 }}
       viewport={{ root: scrollRef, once: false }}
     >
-      <TitleWrap>
-        <ThinTitle>Stepite</ThinTitle>
-      </TitleWrap>
-      <LinkWrap>
-        <LinkTo href='https://www.stepite.com/'>Stepite.com</LinkTo>
-      </LinkWrap>
       <TextWrap>
         <Text>
-          LeaddeveloperofaReactNativeapplicationforthewebthatallowedclients to
-          create label sets for medical supplies. • Developed the frontend
-          interface and connected it to a Django backend, ensuring seamless
+          Loosely designed in Figma and coded in Visual Studio. Built with
+          Next.js and Styled Components, deployed with Vercel.
         </Text>
-        <StackComp stack={stacks.stepite} />
       </TextWrap>
     </AnimatedComponentWrap>
   );

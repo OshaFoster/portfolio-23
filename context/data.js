@@ -23,7 +23,7 @@ export const stacks = {
     'HTML',
   ],
 
-  stepite: ['Python', 'Django', 'Django CMS', 'Matplotlib', 'CSS', 'HTML'],
+  stepite: ['Python', 'Django', 'Django CMS', 'Matplotlib', 'CSS', 'HTML', 'SCRUM'],
 
   dnd: [
     'React-Native',
@@ -34,6 +34,7 @@ export const stacks = {
     'Python',
     'CSS',
     'HTML',
+    'SCRUM'
   ],
 
   fullStack: [
@@ -55,5 +56,6 @@ export const stacks = {
     'Vercel',
     'Framer',
     'Github',
+    'SCRUM',
   ],
 };

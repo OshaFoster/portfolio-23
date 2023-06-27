@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { colors } from '../styles/colors';
+import { motion } from 'framer-motion';
 
 export const Title = styled.h1`
   font-size: 44px;
@@ -49,11 +50,23 @@ export const Decoration = styled.div`
 height: 2px;
 width: 70px;
 background-color: ${colors.decoration};
-margin-bottom: 40px;
-margin-top: 20px;
+margin-bottom: 30px;
+margin-top: 15px;
 transition: background-color 0.3s ease-in-out;
 
 &:hover {
   background-color: ${colors.highlight};
 }
+`;
+
+const ComponentWrap = styled.div`
+  margin-top: 60px;
+`;
+
+export const AnimatedComponentWrap = motion(ComponentWrap);
+
+export const TitleWrap = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 `;

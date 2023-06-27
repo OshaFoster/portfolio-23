@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import _ from 'lodash';
 import { colors } from '../../styles/colors';
 
+
 import { StackContext } from '../../context/StackContext';
 
 const Item = styled.div`
@@ -12,10 +13,10 @@ const Item = styled.div`
   display: inline-block;
   justify-content: center;
   align-items: center;
-  margin: 5px;
-  font-size: 16px;
+  margin: 5px 10px 5px 0px;
+  font-size: 14px;
   color: ${colors.highlight};
-  padding: 5px 12px;
+  padding: 5px 10px;
 `;
 const Wrap = styled.div`
   display: inline-block;
@@ -29,16 +30,18 @@ const StackWrap = styled.div`
 export default function StackComp({ stack }) {
   const { inViewStack, setInViewStack } = useContext(StackContext);
   const [isElementVisible, setElementVisible] = useState(false);
-  const { ref, inView, entry } = useInView({
+  const { ref, inView } = useInView({
     triggerOnce: false, // Optionally trigger the callback only once
-    threshold: 0.05, // Percentage of element visibility required to trigger the callback
+    threshold: 0.1, // Percentage of element visibility required to trigger the callback
   });
 
   useEffect(() => {
     if (inView) {
       setElementVisible(true);
+      console.log('truthy')
     } else {
       setElementVisible(false);
+      console.log('falsy')
     }
     if (isElementVisible) {
       setInViewStack(stack);

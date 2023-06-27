@@ -35,14 +35,14 @@ const ItemInView = styled.div`
 `;
 
 const StackWrap = styled.div`
-  margin: 20px 0px;
+  margin: 50px 0px;
 `;
 
-export default function FullStack() {
+export default function Skills() {
   const { inViewStack, allStacks } = useContext(StackContext);
   return (
     <StackWrap>
-      <ThinTitle>Skills (so far)</ThinTitle>
+      <ThinTitle>Skills</ThinTitle>
       <Decoration/>
       {_.map(allStacks.fullStack, (item, i) => {
         if (_.includes(inViewStack, item)) {
