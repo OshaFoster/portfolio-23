@@ -1,8 +1,10 @@
-import { useRef } from 'react';
+import { useRef, useState, useEffect, useContext } from 'react';
+import { useInView } from 'react-intersection-observer';
 import styled from 'styled-components';
 import _ from 'lodash';
 import StackComp from '../StackComp';
 import { motion } from 'framer-motion';
+import { Context } from '@/context/Context';
 
 import {
   Text,
@@ -11,7 +13,6 @@ import {
   AnimatedComponentWrap,
   TitleWrap,
 } from '@/styles/shared';
-import { stacks } from '@/context/data';
 
 const ImageContainer = styled.div`
   display: flex;
@@ -69,7 +70,7 @@ const mapImages = (images) =>
   _.map(images, (img) => (
     <AnimatedImage
       key={img.alt}
-      whileHover={{ scale: 2 }}
+      whileHover={({ scale: 2 })}
       transition={{ duration: 0.3, type: 'tween' }}
     >
       <Image src={img.src} alt={img.alt} />
@@ -78,6 +79,26 @@ const mapImages = (images) =>
 
 export default function DigNDirt() {
   const scrollRef = useRef(null);
+  const { inViewStack, setInViewStack } = useContext(Context);
+  const [isElementVisible, setElementVisible] = useState(false);
+  const { ref, inView } = useInView({
+    triggerOnce: false, // Optionally trigger the callback only once
+    threshold: 1, // Percentage of element visibility required to trigger the callback
+  });
+
+  useEffect(() => {
+    if (inView) {
+      setElementVisible(true);
+      // console.log('truthy');
+    } else {
+      setElementVisible(false);
+      // console.log('falsy');
+    }
+    if (isElementVisible) {
+      setInViewStack('dnd');
+    }
+  }, [inView, isElementVisible, ref, setInViewStack, inViewStack]);
+
   return (
     <>
       <AnimatedComponentWrap
@@ -86,7 +107,7 @@ export default function DigNDirt() {
         transition={{ duration: 1 }}
         viewport={{ root: scrollRef, once: false }}
       >
-        <TitleWrap>
+        <TitleWrap ref={ref}>
           <ThinTitle>DigNDirt</ThinTitle>
         </TitleWrap>
         <ImageContainer>{mapImages(dndImages)}</ImageContainer>
@@ -97,7 +118,7 @@ export default function DigNDirt() {
             create label sets for medical supplies. • Developed the frontend
             interface and connected it to a Django backend, ensuring seamless
           </Text>
-          <StackComp stack={stacks.dnd} />
+          <StackComp stack={'dnd'} />
         </TextWrap>
       </AnimatedComponentWrap>
       <AnimatedComponentWrap
@@ -116,7 +137,7 @@ export default function DigNDirt() {
             create label sets for medical supplies. • Developed the frontend
             interface and connected it to a Django backend, ensuring seamless
           </Text>
-          <StackComp stack={stacks.dnd} />
+          <StackComp stack={'dnd'} />
         </TextWrap>
       </AnimatedComponentWrap>
       <AnimatedComponentWrap
@@ -136,7 +157,7 @@ export default function DigNDirt() {
             create label sets for medical supplies. • Developed the frontend
             interface and connected it to a Django backend, ensuring seamless
           </Text>
-          <StackComp stack={stacks.dnd} />
+          <StackComp stack={'dnd'} />
         </TextWrap>
       </AnimatedComponentWrap>
     </>

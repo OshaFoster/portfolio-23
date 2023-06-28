@@ -24,13 +24,17 @@ export const ThinTitle = styled.h2`
 
 export const Text = styled.p`
   font-size: 18px;
-  line-height: 24px;
+  line-height: 18px;
   color: ${colors.text};
   font-family: 'Oswald', sans-serif;
   font-weight: 200;
   margin-block-start: 0em;
   margin-block-end: 0em;
 `;
+
+export const Span = styled.span`
+  color: ${colors.decorationLight};
+`
 
 export const DateText = styled.p`
   font-size: 18px;

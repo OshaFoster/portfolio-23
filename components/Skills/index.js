@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import _ from 'lodash';
 import { colors } from '../../styles/colors';
 import { ThinTitle, Decoration } from '../../styles/shared';
-import { StackContext } from '../../context/StackContext';
+import { Context } from '../../context/Context';
 
 const Item = styled.div`
   background-color: ${colors.highlightLight};
@@ -39,13 +39,13 @@ const StackWrap = styled.div`
 `;
 
 export default function Skills() {
-  const { inViewStack, allStacks } = useContext(StackContext);
+  const { inViewStack, allStacks } = useContext(Context);
   return (
     <StackWrap>
       <ThinTitle>Skills</ThinTitle>
       <Decoration/>
       {_.map(allStacks.fullStack, (item, i) => {
-        if (_.includes(inViewStack, item)) {
+        if (_.includes(allStacks[inViewStack], item)) {
           return (
             <Wrap key={i}>
               <Item>{item}</Item>

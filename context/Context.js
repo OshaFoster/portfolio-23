@@ -1,5 +1,5 @@
 import React, { createContext, useState, useMemo } from 'react';
-export const StackContext = createContext();
+export const Context = createContext();
 import { stacks } from './data';
 
 const StackProvider = ({ children }) => {
@@ -16,7 +16,7 @@ const StackProvider = ({ children }) => {
   );
 
   return (
-    <StackContext.Provider value={state}>{children}</StackContext.Provider>
+    <Context.Provider value={state}>{children}</Context.Provider>
   );
 };
 

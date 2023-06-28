@@ -1,14 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
 import _ from 'lodash';
-import { colors } from '../../styles/colors';
 import { ThinTitle, Decoration, Title } from '../../styles/shared';
-import { FaLinkedin } from 'react-icons/fa';
 
 const HeaderWrap = styled.div`
   margin: auto;
   box-sizing: border-box;
-  height: 200px;
+  height: 100px;
 `;
 
 export default function Header() {

@@ -1,11 +1,11 @@
-import { useRef } from 'react';
+import { useRef, useState, useEffect, useContext } from 'react';
+import { useInView } from 'react-intersection-observer';
 import styled from 'styled-components';
 import _ from 'lodash';
 import StackComp from '../StackComp';
-import { Text, ThinTitle, TextWrap } from '../../styles/shared';
-import { colors } from '../../styles/colors';
+import { Text, ThinTitle, TextWrap, Span } from '../../styles/shared';
 import { motion } from 'framer-motion';
-import { stacks } from '@/context/data';
+import { Context } from '../../context/Context';
 
 const ComponentWrap = styled.div`
   margin-top: 60px;
@@ -59,16 +59,31 @@ const images = [
 
 const mapImages = () =>
   _.map(images, (img) => (
-    <AnimatedImage
-      key={img.alt}
-      whileHover={{ scale: 2 }}
-    >
+    <AnimatedImage key={img.alt} whileHover={{ scale: 2 }}>
       <Image src={img.src} alt={img.alt} />
     </AnimatedImage>
   ));
 
 export default function MeritMedical() {
-  const scrollRef = useRef(null)
+  const scrollRef = useRef(null);
+  const { inViewStack, setInViewStack } = useContext(Context);
+  const [isElementVisible, setElementVisible] = useState(false);
+  const { ref, inView } = useInView({
+    triggerOnce: false, // Optionally trigger the callback only once
+    threshold: 1, // Percentage of element visibility required to trigger the callback
+  });
+
+  useEffect(() => {
+    if (inView) {
+      setElementVisible(true);
+    } else {
+      setElementVisible(false);
+    }
+    if (isElementVisible) {
+      setInViewStack('meritMedical');
+    }
+  }, [inView, isElementVisible, ref, setInViewStack, inViewStack]);
+
   return (
     <AnimatedComponentWrap
       initial={{ opacity: 0 }}
@@ -76,7 +91,7 @@ export default function MeritMedical() {
       transition={{ duration: 1 }}
       viewport={{ root: scrollRef, once: false }}
     >
-      <TitleWrap>
+      <TitleWrap ref={ref}>
         <ThinTitle>Merit Medical</ThinTitle>
       </TitleWrap>
       <ImageContainer>{mapImages()}</ImageContainer>
@@ -84,29 +99,20 @@ export default function MeritMedical() {
         <Text>
           LeaddeveloperofaReactNativeapplicationforthewebthatallowedclients to
           create label sets{' '}
-          <span
-            style={{
-              color: colors.decorationLight,
-              opacity: 1,
-            }}
+          <Span
           >
             &nbsp;natural problem solver&nbsp;
-          </span>
+          </Span>
           for medical supplies. • Developed the frontend interface and connected
           it to a Django backend, ensuring seamless
           LeaddeveloperofaReactNativeapplicationforthewebthatallowedclients to
           create label sets{' '}
-          <span
-            style={{
-              color: colors.decorationLight,
-              opacity: 1,
-            }}
-          >
+          <Span>
             &nbsp;natural problem solver&nbsp;
-          </span>
+          </Span>
           for medical supplies. • Developed the frontend interface and connected
         </Text>
-        <StackComp stack={stacks.meritMedical} />
+        <StackComp stack={'meritMedical'} />
       </TextWrap>
     </AnimatedComponentWrap>
   );

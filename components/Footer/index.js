@@ -1,16 +1,12 @@
 import { useRef } from 'react';
-import styled from 'styled-components';
 import _ from 'lodash';
-import StackComp from '../StackComp';
 import {
   Text,
-  ThinTitle,
+  Decoration,
   TextWrap,
   AnimatedComponentWrap,
-  TitleWrap,
+  Span,
 } from '../../styles/shared';
-import { colors } from '../../styles/colors';
-import { stacks } from '@/context/data';
 
 export default function Footer() {
   const scrollRef = useRef(null);
@@ -22,9 +18,12 @@ export default function Footer() {
       viewport={{ root: scrollRef, once: false }}
     >
       <TextWrap>
+        <Decoration/>
         <Text>
-          Loosely designed in Figma and coded in Visual Studio. Built with
-          Next.js and Styled Components, deployed with Vercel.
+          This <Span> portfolio </Span> was designed in <Span>Figma</Span> coded in
+          <Span> Visual Studio Code</Span> built with <Span> NextJS </Span> and
+          deployed with
+          <Span> Vercel </Span> by me.
         </Text>
       </TextWrap>
     </AnimatedComponentWrap>

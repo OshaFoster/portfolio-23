@@ -1,4 +1,5 @@
-import { useRef } from 'react';
+import { useRef, useState, useEffect, useContext } from 'react';
+import { useInView } from 'react-intersection-observer';
 import styled from 'styled-components';
 import _ from 'lodash';
 import StackComp from '../StackComp';
@@ -8,10 +9,10 @@ import {
   TextWrap,
   AnimatedComponentWrap,
   TitleWrap,
+  Span
 } from '../../styles/shared';
-import { colors } from '@/styles/colors';
-import { stacks } from '@/context/data';
 import { motion } from 'framer-motion';
+import { Context } from '../../context/Context';
 
 const ImageContainer = styled.div`
   display: flex;
@@ -66,6 +67,24 @@ const mapImages = () =>
 
 export default function HilaryWatts() {
   const scrollRef = useRef(null);
+  const { inViewStack, setInViewStack } = useContext(Context);
+  const [isElementVisible, setElementVisible] = useState(false);
+  const { ref, inView } = useInView({
+    triggerOnce: false, // Optionally trigger the callback only once
+    threshold: 1, // Percentage of element visibility required to trigger the callback
+  });
+
+  useEffect(() => {
+    if (inView) {
+      setElementVisible(true);
+    } else {
+      setElementVisible(false);
+    }
+    if (isElementVisible) {
+      setInViewStack('hilaryWatts');
+    }
+  }, [inView, isElementVisible, ref, setInViewStack, inViewStack]);
+
   return (
     <AnimatedComponentWrap
       initial={{ opacity: 0 }}
@@ -73,26 +92,21 @@ export default function HilaryWatts() {
       transition={{ duration: 1 }}
       viewport={{ root: scrollRef, once: false }}
     >
-      <TitleWrap>
+      <TitleWrap ref={ref}>
         <ThinTitle>Hilary Watts </ThinTitle>
       </TitleWrap>
       <ImageContainer>{mapImages()}</ImageContainer>
       <TextWrap>
         <Text>
           LeaddeveloperofaReactNativeapplicationforthewebthatallowedclients to
-          create label sets{' '}
-          <span
-            style={{
-              color: colors.decorationLight,
-              opacity: 1,
-            }}
-          >
-            &nbsp;natural problem solver&nbsp;
-          </span>
+          create label sets <Span>&nbsp;natural problem solver&nbsp;</Span>
+          for medical supplies. • Developed the frontend interface and connected
+          it to a Django backend, ensuring seamless LeaddeveloperofaReactNativeapplicationforthewebthatallowedclients to
+          create label sets <Span>&nbsp;natural problem solver&nbsp;</Span>
           for medical supplies. • Developed the frontend interface and connected
           it to a Django backend, ensuring seamless
         </Text>
-        <StackComp stack={stacks.hilaryWatts} />
+        <StackComp stack={'hilaryWatts'} />
       </TextWrap>
     </AnimatedComponentWrap>
   );
