@@ -23,7 +23,7 @@ export default function Footer() {
           This <Span> portfolio </Span> was designed in <Span>Figma</Span> coded in
           <Span> Visual Studio Code</Span> built with <Span> NextJS </Span> and
           deployed with
-          <Span> Vercel </Span> by me.
+          <Span> Vercel </Span>, by me.
         </Text>
       </TextWrap>
     </AnimatedComponentWrap>
