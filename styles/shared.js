@@ -24,7 +24,7 @@ export const ThinTitle = styled.h2`
 
 export const Text = styled.p`
   font-size: 18px;
-  line-height: 18px;
+  line-height: 22px;
   color: ${colors.text};
   font-family: 'Oswald', sans-serif;
   font-weight: 200;
