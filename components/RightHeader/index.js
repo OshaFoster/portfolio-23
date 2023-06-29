@@ -14,6 +14,8 @@ const StickyWrap = styled.div`
   z-index: 10;
   width: 100%;
   padding-left: 150px;
+  padding-top: 10px;
+  /* background-color: green; */
 `;
 
 const TitleWrap = styled.div`

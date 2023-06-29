@@ -29,7 +29,6 @@ const PageWrap = styled.div`
 const ContentWrap = styled.div`
   display: flex;
   flex-direction: row;
-  padding-top: 80px;
   /* background-color: pink; */
 `;
 
@@ -47,11 +46,12 @@ const RightWrap = styled.div`
   overflow: scroll;
   /* background-color: green; */
   box-sizing: border-box;
-  padding-bottom: 400px;
+  padding-bottom: 200px;
 `;
 
 const RightContent = styled.div`
   padding-left: 150px;
+  /* background-color: green; */
 `;
 
 export default function Home() {
@@ -63,9 +63,9 @@ export default function Home() {
         <meta name='viewport' content='width=device-width, initial-scale=1' />
       </Head>
       <PageWrap>
-        <Header />
         <ContentWrap>
           <LeftWrap>
+            <Header />
             <About />
             <Skills />
             <Connect />

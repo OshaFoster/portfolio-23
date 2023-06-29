@@ -44,6 +44,7 @@ export const DateText = styled.p`
   font-weight: 200;
   margin-block-start: 0em;
   margin-block-end: 0em;
+  margin-top: 5px;
 `;
 
 export const TextWrap = styled.div`

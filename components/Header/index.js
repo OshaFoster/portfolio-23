@@ -6,7 +6,7 @@ import { ThinTitle, Decoration, Title } from '../../styles/shared';
 const HeaderWrap = styled.div`
   margin: auto;
   box-sizing: border-box;
-  height: 100px;
+  height: 200px;
 `;
 
 export default function Header() {

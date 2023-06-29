@@ -3,15 +3,15 @@ import { useInView } from 'react-intersection-observer';
 import styled from 'styled-components';
 import _ from 'lodash';
 import StackComp from '../StackComp';
-import { Text, ThinTitle, TextWrap, Span } from '../../styles/shared';
+import {
+  Text,
+  ThinTitle,
+  TextWrap,
+  Span,
+  AnimatedComponentWrap,
+} from '../../styles/shared';
 import { motion } from 'framer-motion';
 import { Context } from '../../context/Context';
-
-const ComponentWrap = styled.div`
-  margin-top: 60px;
-`;
-
-const AnimatedComponentWrap = motion(ComponentWrap);
 
 const TitleWrap = styled.div`
   display: flex;
@@ -59,9 +59,9 @@ const images = [
 
 const mapImages = () => {
   const transformedImages = _.map(images, (img, i) => {
-    let x = 60
-    if (i%2) {
-      x = -80
+    let x = 60;
+    if (i % 2) {
+      x = -80;
     }
     return (
       <AnimatedImage
@@ -110,18 +110,11 @@ export default function MeritMedical() {
       <TextWrap>
         <Text>
           LeaddeveloperofaReactNativeapplicationforthewebthatallowedclients to
-          create label sets{' '}
-          <Span
-          >
-            &nbsp;natural problem solver&nbsp;
-          </Span>
+          create label sets <Span>&nbsp;natural problem solver&nbsp;</Span>
           for medical supplies. • Developed the frontend interface and connected
           it to a Django backend, ensuring seamless
           LeaddeveloperofaReactNativeapplicationforthewebthatallowedclients to
-          create label sets{' '}
-          <Span>
-            &nbsp;natural problem solver&nbsp;
-          </Span>
+          create label sets <Span>&nbsp;natural problem solver&nbsp;</Span>
           for medical supplies. • Developed the frontend interface and connected
         </Text>
         <StackComp stack={'meritMedical'} />
