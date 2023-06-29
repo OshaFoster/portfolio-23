@@ -46,7 +46,7 @@ const RightWrap = styled.div`
   overflow: scroll;
   /* background-color: green; */
   box-sizing: border-box;
-  padding-bottom: 200px;
+  padding-bottom: 140px;
 `;
 
 const RightContent = styled.div`
