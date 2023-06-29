@@ -70,7 +70,7 @@ const mapImages = (images) =>
   _.map(images, (img) => (
     <AnimatedImage
       key={img.alt}
-      whileHover={({ scale: 2 })}
+      whileHover={({ scale: 1.8, })}
       transition={{ duration: 0.3, type: 'tween' }}
     >
       <Image src={img.src} alt={img.alt} />

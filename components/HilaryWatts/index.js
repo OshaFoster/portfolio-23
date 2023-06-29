@@ -63,7 +63,7 @@ const mapImages = () => {
     return (
       <AnimatedImage
         key={img.alt}
-        whileHover={{ scale: 2, x: x }}
+        whileHover={{ scale: 1.8, x: x }}
         transition={{ duration: 0.3, type: 'tween' }}
       >
         <Image src={img.src} alt={img.alt} />
