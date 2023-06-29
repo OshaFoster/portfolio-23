@@ -22,7 +22,7 @@ const Wrap = styled.div`
 `;
 
 const StackWrap = styled.div`
-  margin: 120px 0px;
+  margin: 80px 0px;
 `
 
 export default function StackComp({ stack }) {
