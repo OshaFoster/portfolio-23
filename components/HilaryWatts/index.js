@@ -9,7 +9,7 @@ import {
   TextWrap,
   AnimatedComponentWrap,
   TitleWrap,
-  Span
+  Span,
 } from '../../styles/shared';
 import { motion } from 'framer-motion';
 import { Context } from '../../context/Context';
@@ -54,16 +54,24 @@ const images = [
   { src: '/static/images/h4.png', alt: 'mm img 4' },
 ];
 
-const mapImages = () =>
-  _.map(images, (img) => (
-    <AnimatedImage
-      key={img.alt}
-      whileHover={{ scale: 2 }}
-      transition={{ duration: 0.3, type: 'tween' }}
-    >
-      <Image src={img.src} alt={img.alt} />
-    </AnimatedImage>
-  ));
+const mapImages = () => {
+  const transformedImages = _.map(images, (img, i) => {
+    let x = 60
+    if (i%2) {
+      x = -80
+    }
+    return (
+      <AnimatedImage
+        key={img.alt}
+        whileHover={{ scale: 2, x: x }}
+        transition={{ duration: 0.3, type: 'tween' }}
+      >
+        <Image src={img.src} alt={img.alt} />
+      </AnimatedImage>
+    );
+  });
+  return transformedImages;
+};
 
 export default function HilaryWatts() {
   const scrollRef = useRef(null);
@@ -101,7 +109,8 @@ export default function HilaryWatts() {
           LeaddeveloperofaReactNativeapplicationforthewebthatallowedclients to
           create label sets <Span>&nbsp;natural problem solver&nbsp;</Span>
           for medical supplies. • Developed the frontend interface and connected
-          it to a Django backend, ensuring seamless LeaddeveloperofaReactNativeapplicationforthewebthatallowedclients to
+          it to a Django backend, ensuring seamless
+          LeaddeveloperofaReactNativeapplicationforthewebthatallowedclients to
           create label sets <Span>&nbsp;natural problem solver&nbsp;</Span>
           for medical supplies. • Developed the frontend interface and connected
           it to a Django backend, ensuring seamless

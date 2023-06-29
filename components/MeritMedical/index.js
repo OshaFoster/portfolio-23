@@ -57,12 +57,24 @@ const images = [
   { src: '/static/images/mm4.png', alt: 'mm img 4' },
 ];
 
-const mapImages = () =>
-  _.map(images, (img) => (
-    <AnimatedImage key={img.alt} whileHover={{ scale: 2 }}>
-      <Image src={img.src} alt={img.alt} />
-    </AnimatedImage>
-  ));
+const mapImages = () => {
+  const transformedImages = _.map(images, (img, i) => {
+    let x = 60
+    if (i%2) {
+      x = -80
+    }
+    return (
+      <AnimatedImage
+        key={img.alt}
+        whileHover={{ scale: 1.8, x: x }}
+        transition={{ duration: 0.3, type: 'tween' }}
+      >
+        <Image src={img.src} alt={img.alt} />
+      </AnimatedImage>
+    );
+  });
+  return transformedImages;
+};
 
 export default function MeritMedical() {
   const scrollRef = useRef(null);
