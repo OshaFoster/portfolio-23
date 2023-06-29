@@ -53,14 +53,14 @@ export default function Stepite() {
       viewport={{ root: scrollRef, once: false }}
     >
 
-      <TitleWrap ref={ref}>
+      <TitleWrap >
         <ThinTitle>Stepite</ThinTitle>
       </TitleWrap>
       <LinkWrap>
         <LinkTo href='https://www.stepite.com/'>Stepite.com</LinkTo>
       </LinkWrap>
       <TextWrap>
-        <Text>
+        <Text ref={ref}>
           LeaddeveloperofaReactNativeapplicationforthewebthatallowedclients to
           create label sets for medical supplies. • Developed the frontend
           interface and connected it to a Django backend, ensuring seamless LeaddeveloperofaReactNativeapplicationforthewebthatallowedclients to

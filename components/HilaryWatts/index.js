@@ -100,12 +100,12 @@ export default function HilaryWatts() {
       transition={{ duration: 1 }}
       viewport={{ root: scrollRef, once: false }}
     >
-      <TitleWrap ref={ref}>
+      <TitleWrap >
         <ThinTitle>Hilary Watts </ThinTitle>
       </TitleWrap>
-      <ImageContainer>{mapImages()}</ImageContainer>
-      <TextWrap>
-        <Text>
+      <ImageContainer >{mapImages()}</ImageContainer>
+      <TextWrap >
+        <Text ref={ref}>
           LeaddeveloperofaReactNativeapplicationforthewebthatallowedclients to
           create label sets <Span>&nbsp;natural problem solver&nbsp;</Span>
           for medical supplies. • Developed the frontend interface and connected

@@ -1,19 +1,29 @@
 import React from 'react';
 import styled from 'styled-components';
 import _ from 'lodash';
-import { ThinTitle, Decoration, Title } from '../../styles/shared';
+import { ThinTitle, Decoration, Title } from '@/styles/shared';
+import { colors } from '@/styles/colors'
 
 const HeaderWrap = styled.div`
-  margin: auto;
   box-sizing: border-box;
   height: 200px;
+  /* background-color: blue; */
+`;
+
+const Name = styled.h1`
+  font-size: 62px;
+  color: ${colors.text};
+  font-family: 'Oswald', sans-serif;
+  font-weight: 400;
+  margin-block-start: 0em;
+  margin-block-end: 0em;
 `;
 
 export default function Header() {
   return (
     <>
       <HeaderWrap>
-        <Title>Osha Foster</Title>
+        <Name>Osha Foster</Name>
         <ThinTitle>Software Engineer</ThinTitle>
         <Decoration />
       </HeaderWrap>

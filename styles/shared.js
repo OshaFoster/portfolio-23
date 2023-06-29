@@ -9,6 +9,7 @@ export const Title = styled.h1`
   font-weight: 400;
   margin-block-start: 0em;
   margin-block-end: 0em;
+  margin-top: 60px;
   /* background-color: red; */
 `;
 

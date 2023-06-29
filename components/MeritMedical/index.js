@@ -103,11 +103,11 @@ export default function MeritMedical() {
       transition={{ duration: 1 }}
       viewport={{ root: scrollRef, once: false }}
     >
-      <TitleWrap ref={ref}>
+      <TitleWrap >
         <ThinTitle>Merit Medical</ThinTitle>
       </TitleWrap>
-      <ImageContainer>{mapImages()}</ImageContainer>
-      <TextWrap>
+      <ImageContainer >{mapImages()}</ImageContainer>
+      <TextWrap ref={ref}>
         <Text>
           LeaddeveloperofaReactNativeapplicationforthewebthatallowedclients to
           create label sets <Span>&nbsp;natural problem solver&nbsp;</Span>

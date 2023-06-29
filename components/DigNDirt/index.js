@@ -107,13 +107,13 @@ export default function DigNDirt() {
         transition={{ duration: 1 }}
         viewport={{ root: scrollRef, once: false }}
       >
-        <TitleWrap ref={ref}>
+        <TitleWrap >
           <ThinTitle>DigNDirt</ThinTitle>
         </TitleWrap>
         <ImageContainer>{mapImages(dndImages)}</ImageContainer>
 
         <TextWrap>
-          <Text>
+          <Text ref={ref}>
             LeaddeveloperofaReactNativeapplicationforthewebthatallowedclients to
             create label sets for medical supplies. • Developed the frontend
             interface and connected it to a Django backend, ensuring seamless

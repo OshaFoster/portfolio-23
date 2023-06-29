@@ -1,21 +1,22 @@
 import { useState, useEffect, useContext } from 'react';
 import styled from 'styled-components';
 import _ from 'lodash';
-import { ThinTitle, Decoration, Span } from '../../styles/shared';
-import { BsChevronDown } from 'react-icons/bs';
-import { Context } from '../../context/Context';
+import { ThinTitle, Decoration, Span } from '@/styles/shared';
+import { BsCaretDownFill } from 'react-icons/bs';
+import { Context } from '@/context/Context';
 import { motion } from 'framer-motion';
+import { colors } from '@/styles/colors';
 
 const StickyWrap = styled.div`
   position: sticky;
   top: 0;
-  height: 80px;
+  height: 110px;
   background-color: black;
   z-index: 10;
   width: 100%;
   padding-left: 150px;
-  padding-top: 10px;
-  /* background-color: green; */
+  padding-top: 90px;
+  /* background-color: orange; */
 `;
 
 const TitleWrap = styled.div`
@@ -35,14 +36,14 @@ const AnimatedTitle = motion(ThinTitle);
 
 export default function RightHeader() {
   const { inViewStack } = useContext(Context);
-  const [company, setCompany] = useState('');
+  const [company, setCompany] = useState('chevron');
 
   useEffect(() => {
     if (inViewStack === 'hilaryWatts' || inViewStack === 'meritMedical') {
       setCompany('Freelance');
     } else if (inViewStack === 'stepite') {
       setCompany('Stepite');
-    } else {
+    } else if (inViewStack === 'dnd') {
       setCompany('Verisage');
     }
   }, [inViewStack]);
@@ -58,10 +59,21 @@ export default function RightHeader() {
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5 }}
             >
+            {company !== 'chevron' && (
               <Span> &nbsp;— {company}</Span>
+          )}
+             
             </AnimatedTitle>
           </TitleWrap>
-          {/* <BsChevronDown style={{ color:  colors.highlight, fontSize: '24px', marginLeft: '240px' }} /> */}
+          {company === 'chevron' && (
+            <BsCaretDownFill
+              style={{
+                color: colors.highlight,
+                fontSize: '22px',
+                marginLeft: '20px',
+              }}
+            />
+          )}
         </FlexWrap>
         <Decoration />
       </StickyWrap>
