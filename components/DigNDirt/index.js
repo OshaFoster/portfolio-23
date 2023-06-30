@@ -35,7 +35,7 @@ const ImageWrap = styled.div`
   /* background-color: orange; */
 
   &:hover {
-    z-index: 2;
+    z-index: 10;
     box-shadow: 0 0 15px black;
   }
 `;

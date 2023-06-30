@@ -12,7 +12,7 @@ const StickyWrap = styled.div`
   top: 0;
   height: 110px;
   background-color: black;
-  z-index: 10;
+  z-index: 2;
   width: 100%;
   padding-left: 150px;
   padding-top: 90px;

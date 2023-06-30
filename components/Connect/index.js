@@ -19,7 +19,8 @@ const ConnectA = styled.a`
   margin-left: 20px;
   border: 0.8px solid ${colors.highlight};
   &:hover {
-    box-shadow: 1px 1px 1px ${colors.highlight};
+    box-shadow: 2px 2px 1px ${colors.highlight};
+    transform: translate(-2px, -2px);
   }
 `;
 

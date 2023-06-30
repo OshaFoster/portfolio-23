@@ -33,7 +33,7 @@ const ImageWrap = styled.div`
   margin-right: 10px;
 
   &:hover {
-    z-index: 2;
+    z-index: 10;
     box-shadow: 0 0 15px black;
   }
   /* background-color: orange; */
