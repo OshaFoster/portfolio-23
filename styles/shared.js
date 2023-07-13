@@ -41,7 +41,6 @@ export const media = {
 export const Title = styled.h1`
   font-size: 44px;
   color: ${colors.text};
-  font-family: 'Oswald', sans-serif;
   font-weight: 400;
   margin-block-start: 0em;
   margin-block-end: 0em;
@@ -52,7 +51,6 @@ export const Title = styled.h1`
 export const ThinTitle = styled.h2`
   font-size: 22px;
   color: ${colors.text};
-  font-family: 'Oswald', sans-serif;
   font-weight: 300;
   margin-block-start: 0em;
   margin-block-end: 0em;
@@ -63,7 +61,6 @@ export const Text = styled.p`
   font-size: 18px;
   line-height: 22px;
   color: ${colors.text};
-  font-family: 'Oswald', sans-serif;
   font-weight: 200;
   margin-block-start: 0em;
   margin-block-end: 0em;
@@ -78,7 +75,6 @@ export const DateText = styled.p`
   font-size: 18px;
   line-height: 22px;
   color: ${colors.decorationLight};
-  font-family: 'Oswald', sans-serif;
   font-weight: 200;
   margin-block-start: 0em;
   margin-block-end: 0em;
