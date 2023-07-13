@@ -6,6 +6,7 @@ import { BsCaretDownFill } from 'react-icons/bs';
 import { Context } from '@/context/Context';
 import { motion } from 'framer-motion';
 import { colors } from '@/styles/colors';
+import { media } from '@/styles/shared';
 
 const StickyWrap = styled.div`
   position: sticky;
@@ -14,22 +15,23 @@ const StickyWrap = styled.div`
   background-color: black;
   z-index: 2;
   width: 100%;
-  padding-left: 150px;
+  padding-left: 9.4em;
   padding-top: 90px;
-  /* background-color: orange; */
+ ${media.medium `
+  padding-left: 0px;
+ `}
+
 `;
 
 const TitleWrap = styled.div`
   display: flex;
   flex-direction: row;
-  /* background-color: orange; */
 `;
 
 const FlexWrap = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-  /* background-color: yellow; */
 `;
 
 const AnimatedTitle = motion(ThinTitle);
@@ -59,10 +61,7 @@ export default function RightHeader() {
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5 }}
             >
-            {company !== 'chevron' && (
-              <Span> &nbsp;— {company}</Span>
-          )}
-             
+              {company !== 'chevron' && <Span> &nbsp;— {company}</Span>}
             </AnimatedTitle>
           </TitleWrap>
           {company === 'chevron' && (

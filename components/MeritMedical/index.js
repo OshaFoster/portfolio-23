@@ -9,9 +9,10 @@ import {
   TextWrap,
   Span,
   AnimatedComponentWrap,
-} from '../../styles/shared';
+} from '@/styles/shared';
 import { motion } from 'framer-motion';
-import { Context } from '../../context/Context';
+import { Context } from '@/context/Context';
+import { media } from '@/styles/shared';
 
 const TitleWrap = styled.div`
   display: flex;
@@ -23,10 +24,20 @@ const ImageContainer = styled.div`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  width: 800px;
+  width: 600px;
   height: 400px;
   margin-top: 20px;
   /* background-color: pink; */
+  ${media.small`
+  flex-direction: column;
+    width: 100%;
+    justify-content: space-around;
+    align-items: center;
+    overflow: scroll;
+    margin-bottom: 40px;
+    margin-top: 40px;
+    height: 800px;
+  `}
 `;
 
 const ImageWrap = styled.div`
@@ -40,6 +51,10 @@ const ImageWrap = styled.div`
     z-index: 10;
     box-shadow: 0 0 15px black;
   }
+
+  ${media.small`
+  margin-right: 20px;
+  `}
 `;
 
 const AnimatedImage = motion(ImageWrap);
@@ -103,17 +118,18 @@ export default function MeritMedical() {
       transition={{ duration: 1 }}
       viewport={{ root: scrollRef, once: false }}
     >
-      <TitleWrap >
+      <TitleWrap>
         <ThinTitle>Merit Medical</ThinTitle>
       </TitleWrap>
-      <ImageContainer >{mapImages()}</ImageContainer>
+      <ImageContainer>{mapImages()}</ImageContainer>
       <TextWrap ref={ref}>
         <Text>
-          LeaddeveloperofaReactNativeapplicationforthewebthatallowedclients to
-          create label sets <Span>&nbsp;natural problem solver&nbsp;</Span>
+          Leaddevel operofaReact Nativeapplic ationfort hewebtha tallowedcli
+          ents to create label set
+          <Span>&nbsp;natural problem solver&nbsp;</Span>
           for medical supplies. • Developed the frontend interface and connected
           it to a Django backend, ensuring seamless
-          LeaddeveloperofaReactNativeapplicationforthewebthatallowedclients to
+          Leaddeve loperofa React Nativea pplicati onfo rthewebt hatal lowedcl ients to
           create label sets <Span>&nbsp;natural problem solver&nbsp;</Span>
           for medical supplies. • Developed the frontend interface and connected
         </Text>

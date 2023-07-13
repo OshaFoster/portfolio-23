@@ -1,10 +1,10 @@
 import { useContext } from 'react';
 import styled from 'styled-components';
 import _ from 'lodash';
-import { colors } from '../../styles/colors';
+import { colors } from '@/styles/colors';
 
 
-import { Context } from '../../context/Context';
+import { Context } from '@/context/Context';
 
 const Item = styled.div`
   background-color: ${colors.highlightLight};

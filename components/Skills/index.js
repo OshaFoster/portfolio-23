@@ -2,9 +2,9 @@ import { useState, useEffect, useContext } from 'react';
 
 import styled from 'styled-components';
 import _ from 'lodash';
-import { colors } from '../../styles/colors';
-import { ThinTitle, Decoration } from '../../styles/shared';
-import { Context } from '../../context/Context';
+import { colors } from '@/styles/colors';
+import { ThinTitle, Decoration, TextWrap } from '@/styles/shared';
+import { Context } from '@/context/Context';
 
 const Item = styled.div`
   background-color: ${colors.highlightLight};
@@ -23,7 +23,6 @@ const Wrap = styled.div`
 `;
 
 const ItemInView = styled.div`
-  /* background-color: ${colors.highlightLight}; */
   border-radius: 5px;
   display: inline-block;
   justify-content: center;
@@ -44,6 +43,7 @@ export default function Skills() {
     <StackWrap>
       <ThinTitle>Skills</ThinTitle>
       <Decoration/>
+      <TextWrap>
       {_.map(allStacks.fullStack, (item, i) => {
         if (_.includes(allStacks[inViewStack], item)) {
           return (
@@ -59,6 +59,7 @@ export default function Skills() {
           );
         }
       })}
+      </TextWrap>
     </StackWrap>
   );
 }

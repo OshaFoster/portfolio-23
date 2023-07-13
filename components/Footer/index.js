@@ -6,7 +6,7 @@ import {
   TextWrap,
   AnimatedComponentWrap,
   Span,
-} from '../../styles/shared';
+} from '@/styles/shared';
 
 export default function Footer() {
   const scrollRef = useRef(null);

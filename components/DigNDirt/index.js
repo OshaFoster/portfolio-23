@@ -5,6 +5,7 @@ import _ from 'lodash';
 import StackComp from '../StackComp';
 import { motion } from 'framer-motion';
 import { Context } from '@/context/Context';
+import { media } from '@/styles/shared';
 
 import {
   Text,
@@ -18,10 +19,20 @@ const ImageContainer = styled.div`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  width: 800px;
-  height: 300px;
+  width: 600px;
+  height: 400px;
   margin-top: 20px;
   /* background-color: pink; */
+  ${media.small`
+  flex-direction: column;
+    width: 100%;
+    justify-content: space-around;
+    align-items: center;
+    overflow: scroll;
+    margin-bottom: 40px;
+    margin-top: 40px;
+    height: 1000px;
+  `}
 `;
 
 const ImageWrap = styled.div`
@@ -70,7 +81,7 @@ const mapImages = (images) =>
   _.map(images, (img) => (
     <AnimatedImage
       key={img.alt}
-      whileHover={({ scale: 1.8, })}
+      whileHover={{ scale: 1.8 }}
       transition={{ duration: 0.3, type: 'tween' }}
     >
       <Image src={img.src} alt={img.alt} />
@@ -107,16 +118,17 @@ export default function DigNDirt() {
         transition={{ duration: 1 }}
         viewport={{ root: scrollRef, once: false }}
       >
-        <TitleWrap >
+        <TitleWrap>
           <ThinTitle>DigNDirt</ThinTitle>
         </TitleWrap>
         <ImageContainer>{mapImages(dndImages)}</ImageContainer>
 
         <TextWrap>
           <Text ref={ref}>
-            LeaddeveloperofaReactNativeapplicationforthewebthatallowedclients to
-            create label sets for medical supplies. • Developed the frontend
-            interface and connected it to a Django backend, ensuring seamless
+            Leadd evelope rofaReac tNativ eapplica tionfort hewebtha tallow
+            edclients to create label sets for medical supplies. • Developed the
+            frontend interface and connected it to a Django backend, ensuring
+            seamless
           </Text>
           <StackComp stack={'dnd'} />
         </TextWrap>
@@ -133,9 +145,10 @@ export default function DigNDirt() {
         <ImageContainer>{mapImages(eqtImages)}</ImageContainer>
         <TextWrap>
           <Text>
-            LeaddeveloperofaReactNativeapplicationforthewebthatallowedclients to
-            create label sets for medical supplies. • Developed the frontend
-            interface and connected it to a Django backend, ensuring seamless
+            Leadde velopero faReactNa tiveappli cationfortheweb thatallowe
+            dclients to create label sets for medical supplies. • Developed the
+            frontend interface and connected it to a Django backend, ensuring
+            seamless
           </Text>
           <StackComp stack={'dnd'} />
         </TextWrap>
@@ -153,9 +166,10 @@ export default function DigNDirt() {
 
         <TextWrap>
           <Text>
-            LeaddeveloperofaReactNativeapplicationforthewebthatallowedclients to
-            create label sets for medical supplies. • Developed the frontend
-            interface and connected it to a Django backend, ensuring seamless
+            Leaddev eloperof aReactNati veapplic ationfort hewebthata llowe
+            dclients to create label sets for medical supplies. • Developed the
+            frontend interface and connected it to a Django backend, ensuring
+            seamless
           </Text>
           <StackComp stack={'dnd'} />
         </TextWrap>

@@ -1,6 +1,42 @@
 import styled from 'styled-components';
 import { colors } from '../styles/colors';
 import { motion } from 'framer-motion';
+import { css } from 'styled-components';
+
+export const sizes = {
+  breakpoints: {
+    xLargeMinWidth: 1800,
+    mediumMaxWidth: 1250,
+    smallMaxWidth: 648,
+    xSmallMaxWidth: 375,
+  },
+  margin: {
+    pageLeft: '10vw',
+  },
+};
+
+export const media = {
+  xSmall: (...args) => css`
+    @media (max-width: ${sizes.breakpoints.xSmallMaxWidth}px) {
+      ${css(...args)}
+    }
+  `,
+  small: (...args) => css`
+    @media (max-width: ${sizes.breakpoints.smallMaxWidth}px) {
+      ${css(...args)}
+    }
+  `,
+  medium: (...args) => css`
+    @media (max-width: ${sizes.breakpoints.mediumMaxWidth}px) {
+      ${css(...args)}
+    }
+  `,
+  xLarge: (...args) => css`
+    @media (min-width: ${sizes.breakpoints.xLargeMinWidth}px) {
+      ${css(...args)}
+    }
+  `,
+};
 
 export const Title = styled.h1`
   font-size: 44px;
@@ -31,6 +67,7 @@ export const Text = styled.p`
   font-weight: 200;
   margin-block-start: 0em;
   margin-block-end: 0em;
+    /* background-color: green;      */
 `;
 
 export const Span = styled.span`
@@ -49,7 +86,8 @@ export const DateText = styled.p`
 `;
 
 export const TextWrap = styled.div`
-  width: 65%;
+  max-width: 570px;
+    /* background-color: red; */
 `;
 
 export const Decoration = styled.div`
@@ -76,3 +114,4 @@ export const TitleWrap = styled.div`
   flex-direction: row;
   align-items: center;
 `;
+

@@ -10,18 +10,29 @@ import {
   AnimatedComponentWrap,
   TitleWrap,
   Span,
-} from '../../styles/shared';
+} from '@/styles/shared';
 import { motion } from 'framer-motion';
-import { Context } from '../../context/Context';
+import { Context } from '@/context/Context';
+import { media } from '@/styles/shared';
 
 const ImageContainer = styled.div`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  width: 800px;
+  width: 600px;
   height: 400px;
   margin-top: 20px;
   /* background-color: pink; */
+  ${media.small`
+    flex-direction: column;
+    width: 100%;
+    justify-content: space-around;
+    align-items: center;
+    overflow: scroll;
+    margin-bottom: 40px;
+    margin-top: 40px;
+    height: 800px;
+  `}
 `;
 
 const ImageWrap = styled.div`
@@ -56,9 +67,9 @@ const images = [
 
 const mapImages = () => {
   const transformedImages = _.map(images, (img, i) => {
-    let x = 60
-    if (i%2) {
-      x = -80
+    let x = 60;
+    if (i % 2) {
+      x = -80;
     }
     return (
       <AnimatedImage
@@ -72,6 +83,7 @@ const mapImages = () => {
   });
   return transformedImages;
 };
+
 
 export default function HilaryWatts() {
   const scrollRef = useRef(null);
@@ -100,17 +112,17 @@ export default function HilaryWatts() {
       transition={{ duration: 1 }}
       viewport={{ root: scrollRef, once: false }}
     >
-      <TitleWrap >
+      <TitleWrap>
         <ThinTitle>Hilary Watts </ThinTitle>
       </TitleWrap>
-      <ImageContainer >{mapImages()}</ImageContainer>
-      <TextWrap >
+      <ImageContainer>{mapImages()}</ImageContainer>
+      <TextWrap>
         <Text ref={ref}>
-          LeaddeveloperofaReactNativeapplicationforthewebthatallowedclients to
+          Leaddev eloperofaRe actNati veappl icatio nforthewebth atallow edclients to
           create label sets <Span>&nbsp;natural problem solver&nbsp;</Span>
           for medical supplies. • Developed the frontend interface and connected
           it to a Django backend, ensuring seamless
-          LeaddeveloperofaReactNativeapplicationforthewebthatallowedclients to
+          Leaddev elop erofaReact Nati veapplic ation forth ewebth atallo wedclients to
           create label sets <Span>&nbsp;natural problem solver&nbsp;</Span>
           for medical supplies. • Developed the frontend interface and connected
           it to a Django backend, ensuring seamless

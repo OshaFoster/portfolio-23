@@ -61,7 +61,7 @@ export default function Stepite() {
       </LinkWrap>
       <TextWrap>
         <Text ref={ref}>
-          LeaddeveloperofaReactNativeapplicationforthewebthatallowedclients to
+          Leaddev eloperofaR eactNativ eapplicat ionforthew ebthatall owedclients to
           create label sets for medical supplies. • Developed the frontend
           interface and connected it to a Django backend, ensuring seamless LeaddeveloperofaReactNativeapplicationforthewebthatallowedclients to
           create label sets <Span>&nbsp;natural problem solver&nbsp;</Span>

@@ -1,42 +1,73 @@
 import Head from 'next/head';
 import styled from 'styled-components';
 import { Inter, Oswald } from 'next/font/google';
-import MeritMedical from '../components/MeritMedical';
-import HilaryWatts from '../components/HilaryWatts';
-import Stepite from '../components/Stepite';
-import Skills from '../components/Skills';
-import About from '../components/About';
-import Header from '../components/Header';
-import RightHeader from '../components/RightHeader';
-import Connect from '../components/Connect';
-import Footer from '../components/Footer';
+import MeritMedical from 'components/MeritMedical';
+import HilaryWatts from 'components/HilaryWatts';
+import Stepite from 'components/Stepite';
+import Skills from 'components/Skills';
+import About from 'components/About';
+import Header from 'components/Header';
+import RightHeader from 'components/RightHeader';
+import Connect from 'components/Connect';
+import Footer from 'components/Footer';
 import DigNDirt from 'components/DigNDirt';
-import { Title, DateText } from '../styles/shared';
-
+import { Title, DateText } from '@/styles/shared';
+import { media } from '@/styles/shared';
 // const inter = Inter({ subsets: ['latin'] });
 // const light = Oswald({ weight: '200', subsets: ['latin'] });
 
 const PageWrap = styled.div`
+/* adjust on large screen */
+  max-width: 1800px;
   width: 85%;
   margin: auto;
-  padding-top: 40px;
+  padding: 40px 190px;
   overflow: hidden;
   position: fixed;
   inset: 0;
   /* background-color: white; */
+  ${media.medium`
+  overflow: scroll;
+  padding: 40px 150px;
+  /* background-color: blue; */
+  `}
+  ${media.small`
+  overflow: scroll;
+  width: 100%;
+  overflow-x: hidden;
+  padding: 40px 0px;
+  /* background-color: green; */
+  `}
 `;
 
 const ContentWrap = styled.div`
   display: flex;
   flex-direction: row;
   /* background-color: pink; */
+  ${media.medium`
+  flex-direction: column;
+  overflow: scroll;
+  overflow-x: hidden;
+  /* background-color: green; */
+  `}
 `;
 
 const LeftWrap = styled.div`
-  width: 35%;
+  width: 32em;
   /* background-color: yellow; */
   padding-right: 90px;
   box-sizing: border-box;
+  ${media.medium`
+  width: 80%;
+  margin: auto;
+  padding-left: 1em;
+  `}
+  ${media.small`
+  padding-right: 0px;
+  width: 90%;
+  margin: auto;
+  padding-left: 0px;
+  `}
 `;
 
 const RightWrap = styled.div`
@@ -47,11 +78,25 @@ const RightWrap = styled.div`
   /* background-color: green; */
   box-sizing: border-box;
   padding-bottom: 140px;
+  ${media.medium`
+  margin: auto;
+  overflow-x: hidden;
+  width: 80%;
+  margin: auto;
+  `}
+  ${media.small`
+  width: 90%;
+  margin: auto;
+  overflow-x: hidden;
+  `}
 `;
 
 const RightContent = styled.div`
-  padding-left: 150px;
-  /* background-color: green; */
+  padding-left: 9.4em;
+  ${media.medium`
+    padding-left: 0px;
+  /* background-color: gray; */
+  `}
 `;
 
 export default function Home() {
