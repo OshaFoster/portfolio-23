@@ -9,10 +9,11 @@ import {
   TextWrap,
   Span,
   AnimatedComponentWrap,
+  media,
+  sizes,
 } from '@/styles/shared';
 import { motion } from 'framer-motion';
 import { Context } from '@/context/Context';
-import { media } from '@/styles/shared';
 
 const TitleWrap = styled.div`
   display: flex;
@@ -72,16 +73,21 @@ const images = [
   { src: '/static/images/mm4.png', alt: 'mm img 4' },
 ];
 
-const mapImages = () => {
+const mapImages = (stopHover) => {
+  // console.log(stopHover);
   const transformedImages = _.map(images, (img, i) => {
-    let x = 60;
+    let x = 120;
     if (i % 2) {
-      x = -80;
+      x = -110;
     }
+    if (stopHover) {
+      x = 8;
+    }
+    const scale = stopHover ? 1 : 1.8;
     return (
       <AnimatedImage
         key={img.alt}
-        whileHover={{ scale: 1.8, x: x }}
+        whileHover={{ scale: scale, x: x }}
         transition={{ duration: 0.3, type: 'tween' }}
       >
         <Image src={img.src} alt={img.alt} />
@@ -95,6 +101,7 @@ export default function MeritMedical() {
   const scrollRef = useRef(null);
   const { inViewStack, setInViewStack } = useContext(Context);
   const [isElementVisible, setElementVisible] = useState(false);
+  const [windowWidth, setWindowWidth] = useState();
   const { ref, inView } = useInView({
     triggerOnce: false, // Optionally trigger the callback only once
     threshold: 1, // Percentage of element visibility required to trigger the callback
@@ -111,6 +118,20 @@ export default function MeritMedical() {
     }
   }, [inView, isElementVisible, ref, setInViewStack, inViewStack]);
 
+  useEffect(() => {
+    function handleResize() {
+      setWindowWidth(window?.innerWidth);
+    }
+
+    window?.addEventListener('resize', handleResize);
+
+    return () => {
+      window?.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
+  const stopHover = windowWidth < sizes.breakpoints.smallMaxWidth;
+
   return (
     <AnimatedComponentWrap
       initial={{ opacity: 0 }}
@@ -121,17 +142,16 @@ export default function MeritMedical() {
       <TitleWrap>
         <ThinTitle>Merit Medical</ThinTitle>
       </TitleWrap>
-      <ImageContainer>{mapImages()}</ImageContainer>
+      <ImageContainer>{mapImages(stopHover)}</ImageContainer>
       <TextWrap ref={ref}>
         <Text>
-          Leaddevel operofaReact Nativeapplic ationfort hewebtha tallowedcli
-          ents to create label set
-          <Span>&nbsp;natural problem solver&nbsp;</Span>
-          for medical supplies. • Developed the frontend interface and connected
-          it to a Django backend, ensuring seamless
-          Leaddeve loperofa React Nativea pplicati onfo rthewebt hatal lowedcl ients to
-          create label sets <Span>&nbsp;natural problem solver&nbsp;</Span>
-          for medical supplies. • Developed the frontend interface and connected
+          <Span>Lead developer&nbsp;</Span> of a React Native application for
+          the web that allows clients to create label sets for medical supplies.
+          Developed the frontend interface and connected it to a Django backend,
+          ensuring <Span>&nbsp;seamless integration&nbsp;</Span> between the
+          two.<Span>&nbsp;Supervised the team&nbsp;</Span>of four frontend and
+          backend developers, providing guidance and support throughout the
+          development process.
         </Text>
         <StackComp stack={'meritMedical'} />
       </TextWrap>

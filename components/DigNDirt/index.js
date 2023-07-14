@@ -5,7 +5,6 @@ import _ from 'lodash';
 import StackComp from '../StackComp';
 import { motion } from 'framer-motion';
 import { Context } from '@/context/Context';
-import { media } from '@/styles/shared';
 
 import {
   Text,
@@ -13,6 +12,9 @@ import {
   TextWrap,
   AnimatedComponentWrap,
   TitleWrap,
+  Span,
+  media,
+  sizes,
 } from '@/styles/shared';
 
 const ImageContainer = styled.div`
@@ -77,21 +79,37 @@ const hndImages = [
   { src: '/static/images/hnd3.png', alt: 'hnd img 3' },
 ];
 
-const mapImages = (images) =>
-  _.map(images, (img) => (
-    <AnimatedImage
-      key={img.alt}
-      whileHover={{ scale: 1.8 }}
-      transition={{ duration: 0.3, type: 'tween' }}
-    >
-      <Image src={img.src} alt={img.alt} />
-    </AnimatedImage>
-  ));
+const mapImages = (images, stopHover) => {
+  const transformedImages = _.map(images, (img, i) => {
+    let x = 8;
+    if (i === 0) {
+      x = 80;
+    }
+    if (i === 2) {
+      x = -80;
+    }
+    if (stopHover) {
+      x = 8;
+    }
+    const scale = stopHover ? 1 : 1.8;
+    return (
+      <AnimatedImage
+        key={img.alt}
+        whileHover={{ scale: scale, x: x }}
+        transition={{ duration: 0.3, type: 'tween' }}
+      >
+        <Image src={img.src} alt={img.alt} />
+      </AnimatedImage>
+    );
+  });
+  return transformedImages;
+};
 
 export default function DigNDirt() {
   const scrollRef = useRef(null);
   const { inViewStack, setInViewStack } = useContext(Context);
   const [isElementVisible, setElementVisible] = useState(false);
+  const [windowWidth, setWindowWidth] = useState();
   const { ref, inView } = useInView({
     triggerOnce: false, // Optionally trigger the callback only once
     threshold: 1, // Percentage of element visibility required to trigger the callback
@@ -110,6 +128,20 @@ export default function DigNDirt() {
     }
   }, [inView, isElementVisible, ref, setInViewStack, inViewStack]);
 
+  useEffect(() => {
+    function handleResize() {
+      setWindowWidth(window?.innerWidth);
+    }
+
+    window?.addEventListener('resize', handleResize);
+
+    return () => {
+      window?.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
+  const stopHover = windowWidth < sizes.breakpoints.smallMaxWidth;
+
   return (
     <>
       <AnimatedComponentWrap
@@ -121,14 +153,14 @@ export default function DigNDirt() {
         <TitleWrap>
           <ThinTitle>DigNDirt</ThinTitle>
         </TitleWrap>
-        <ImageContainer>{mapImages(dndImages)}</ImageContainer>
+        <ImageContainer>{mapImages(dndImages, stopHover)}</ImageContainer>
 
         <TextWrap>
           <Text ref={ref}>
-            Leadd evelope rofaReac tNativ eapplica tionfort hewebtha tallow
-            edclients to create label sets for medical supplies. • Developed the
-            frontend interface and connected it to a Django backend, ensuring
-            seamless
+            Created DND mobile application to optimize the efficiency of
+            excavators in finding and transporting dirt, highlighting my ability
+            to identify and <Span>&nbsp;solve real-world problems&nbsp;</Span>{' '}
+            using technology.
           </Text>
           <StackComp stack={'dnd'} />
         </TextWrap>
@@ -142,13 +174,13 @@ export default function DigNDirt() {
         <TitleWrap>
           <ThinTitle>Equipment Tracker</ThinTitle>
         </TitleWrap>
-        <ImageContainer>{mapImages(eqtImages)}</ImageContainer>
+        <ImageContainer>{mapImages(eqtImages, stopHover)}</ImageContainer>
         <TextWrap>
           <Text>
-            Leadde velopero faReactNa tiveappli cationfortheweb thatallowe
-            dclients to create label sets for medical supplies. • Developed the
-            frontend interface and connected it to a Django backend, ensuring
-            seamless
+            Contributed to the development of EQT mobile application for
+            managing inventory and maintenance of heavy machinery, utilizing my
+            technical expertise and <Span>&nbsp;teamwork skills&nbsp;</Span> to
+            ensure successful delivery of the application.
           </Text>
           <StackComp stack={'dnd'} />
         </TextWrap>
@@ -162,14 +194,13 @@ export default function DigNDirt() {
         <TitleWrap>
           <ThinTitle>HaulNDirt</ThinTitle>
         </TitleWrap>
-        <ImageContainer>{mapImages(hndImages)}</ImageContainer>
+        <ImageContainer>{mapImages(hndImages, stopHover)}</ImageContainer>
 
         <TextWrap>
           <Text>
-            Leaddev eloperof aReactNati veapplic ationfort hewebthata llowe
-            dclients to create label sets for medical supplies. • Developed the
-            frontend interface and connected it to a Django backend, ensuring
-            seamless
+            Developed HND mobile application to help excavators manage clients
+            and trucking assignments, showcasing my proficiency in developing
+            mobile apps with<Span>&nbsp;complex functionality&nbsp;</Span>.
           </Text>
           <StackComp stack={'dnd'} />
         </TextWrap>

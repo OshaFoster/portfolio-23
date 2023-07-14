@@ -49,6 +49,7 @@ const ContentWrap = styled.div`
   overflow: scroll;
   overflow-x: hidden;
   /* background-color: green; */
+  z-index: 1;
   `}
 `;
 
@@ -60,7 +61,7 @@ const LeftWrap = styled.div`
   ${media.medium`
   width: 80%;
   margin: auto;
-  padding-left: 1em;
+  /* padding-left: 1em; */
   `}
   ${media.small`
   padding-right: 0px;
@@ -75,7 +76,7 @@ const RightWrap = styled.div`
   width: 65%;
   margin: auto;
   overflow: scroll;
-  /* background-color: green; */
+  /* background-color: red; */
   box-sizing: border-box;
   padding-bottom: 140px;
   ${media.medium`
@@ -83,6 +84,7 @@ const RightWrap = styled.div`
   overflow-x: hidden;
   width: 80%;
   margin: auto;
+  z-index: 10;
   `}
   ${media.small`
   width: 90%;

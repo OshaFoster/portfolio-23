@@ -3,6 +3,7 @@ import { useState, useEffect, useContext } from 'react';
 import styled from 'styled-components';
 import _ from 'lodash';
 import { colors } from '@/styles/colors';
+import { media } from '@/styles/shared';
 import { ThinTitle, Decoration, TextWrap } from '@/styles/shared';
 import { Context } from '@/context/Context';
 
@@ -16,6 +17,10 @@ const Item = styled.div`
   font-size: 14px;
   color: ${colors.highlight};
   padding: 5px 10px;
+  ${media.small`
+  color: ${colors.highlight};
+  background-color: ${colors.highlightLight};
+  `}
 `;
 const Wrap = styled.div`
   display: inline-block;
@@ -31,6 +36,10 @@ const ItemInView = styled.div`
   font-size: 14px;
   color: ${colors.highlight};
   padding: 5px 10px;
+  ${media.small`
+  color: ${colors.highlight};
+  background-color: ${colors.highlightLight};
+  `}
 `;
 
 const StackWrap = styled.div`

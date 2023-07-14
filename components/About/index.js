@@ -8,7 +8,11 @@ export default function About() {
       <Decoration />
       <TextWrap>
         <Text>
-          Hi, I am a software engineer. I enjoy collaberating with a team and I also work well on my own. 
+          Hi, I am a software engineer. I enjoy collaberating with a team and I
+          also work well on my own. Yada, Yada, Yada...Lorem ipsum dolor sit
+          amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+          labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+          exercitation ullamco.
         </Text>
       </TextWrap>
     </>

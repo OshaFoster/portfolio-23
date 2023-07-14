@@ -59,7 +59,7 @@ export const ThinTitle = styled.h2`
 
 export const Text = styled.p`
   font-size: 18px;
-  line-height: 22px;
+  line-height: 25px;
   color: ${colors.text};
   font-weight: 200;
   margin-block-start: 0em;
@@ -73,7 +73,7 @@ export const Span = styled.span`
 
 export const DateText = styled.p`
   font-size: 18px;
-  line-height: 22px;
+  line-height: 25px;
   color: ${colors.decorationLight};
   font-weight: 200;
   margin-block-start: 0em;

@@ -52,8 +52,7 @@ export default function Stepite() {
       transition={{ duration: 1 }}
       viewport={{ root: scrollRef, once: false }}
     >
-
-      <TitleWrap >
+      <TitleWrap>
         <ThinTitle>Stepite</ThinTitle>
       </TitleWrap>
       <LinkWrap>
@@ -61,12 +60,16 @@ export default function Stepite() {
       </LinkWrap>
       <TextWrap>
         <Text ref={ref}>
-          Leaddev eloperofaR eactNativ eapplicat ionforthew ebthatall owedclients to
-          create label sets for medical supplies. • Developed the frontend
-          interface and connected it to a Django backend, ensuring seamless LeaddeveloperofaReactNativeapplicationforthewebthatallowedclients to
-          create label sets <Span>&nbsp;natural problem solver&nbsp;</Span>
-          for medical supplies. • Developed the frontend interface and connected
-          it to a Django backend, ensuring seamless
+          Collaborated on a Django app processing ASIN data to{' '}
+          <Span>&nbsp;generate reports on Amazon trends&nbsp;</Span>. Utilized
+          Matplotlib to create<Span>&nbsp;visually appealing graphs&nbsp;</Span>{' '}
+          for easy data comprehension. Built a user-friendly website with Django
+          CMS to display reports. Engaged in client discussions to understand
+          needs and ensure application and reports met expectations. Showcased
+          <Span>&nbsp;attention to detail&nbsp;</Span> and
+          <Span>&nbsp;analytical skills&nbsp;</Span> in processing and analyzing
+          large data sets. Led daily stand-ups, prioritized tasks, and helped to
+          facilitate sprint planning and retrospectives.
         </Text>
         <StackComp stack={'stepite'} />
       </TextWrap>

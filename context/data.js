@@ -10,6 +10,7 @@ export const stacks = {
     'Github',
     'CSS',
     'HTML',
+    'Contentful',
   ],
 
   meritMedical: [
@@ -60,10 +61,11 @@ export const stacks = {
     'Bitbucket',
     'Matplotlib',
     'Weasyprint',
-    'Styled-Components',
+    'SCRUM',
     'Vercel',
     'Framer',
     'Github',
-    'SCRUM',
+    'Styled-Components',
+    'Contentful',
   ],
 };
