@@ -64,10 +64,10 @@ const Image = styled.img`
 `;
 
 const images = [
-  { src: '/static/images/h1.png', alt: 'mm img 1' },
-  { src: '/static/images/h2.png', alt: 'mm img 2' },
-  { src: '/static/images/h3.png', alt: 'mm img 3' },
-  { src: '/static/images/h4.png', alt: 'mm img 4' },
+  { src: '/static/images/hw1.png', alt: 'mm img 1' },
+  { src: '/static/images/hw2.png', alt: 'mm img 2' },
+  { src: '/static/images/hw3.png', alt: 'mm img 3' },
+  { src: '/static/images/hw4.png', alt: 'mm img 4' },
 ];
 
 const mapImages = (stopHover) => {
