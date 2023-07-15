@@ -77,7 +77,7 @@ const RightWrap = styled.div`
   width: 65%;
   margin: auto;
   overflow: scroll;
-  background-color: red;
+  /* background-color: red; */
   box-sizing: border-box;
   padding-bottom: 100px;
   ${media.medium`
