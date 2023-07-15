@@ -57,7 +57,7 @@ const ContentWrap = styled.div`
 const LeftWrap = styled.div`
   width: 32em;
   /* background-color: yellow; */
-  padding-right: 4em;
+  padding-right: 3em;
   box-sizing: border-box;
   ${media.medium`
   width: 80%;
