@@ -76,7 +76,7 @@ const mapImages = (stopHover) => {
   const transformedImages = _.map(images, (img, i) => {
     let x = 120;
     if (i % 2) {
-      x = -110;
+      x = -140;
     }
     if (stopHover) {
       x = 0;
