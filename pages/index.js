@@ -57,7 +57,7 @@ const ContentWrap = styled.div`
 const LeftWrap = styled.div`
   width: 32em;
   /* background-color: yellow; */
-  padding-right: 90px;
+  padding-right: 4em;
   box-sizing: border-box;
   ${media.medium`
   width: 80%;
@@ -79,7 +79,7 @@ const RightWrap = styled.div`
   overflow: scroll;
   /* background-color: red; */
   box-sizing: border-box;
-  padding-bottom: 140px;
+  padding-bottom: 100px;
   ${media.medium`
   margin: auto;
   overflow-x: hidden;

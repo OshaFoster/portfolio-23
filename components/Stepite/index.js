@@ -60,8 +60,7 @@ export default function Stepite() {
       </LinkWrap>
       <TextWrap>
         <Text ref={ref}>
-          Collaborated on a Django app processing ASIN data to{' '}
-          <Span>&nbsp;generate reports on Amazon trends&nbsp;</Span>. Utilized
+          Collaborated on a Django app processing ASIN data to<Span>&nbsp;generate reports&nbsp;</Span>on Amazon trends. Utilized
           Matplotlib to create<Span>&nbsp;visually appealing graphs&nbsp;</Span>{' '}
           for easy data comprehension. Built a user-friendly website with Django
           CMS to display reports. Engaged in client discussions to understand

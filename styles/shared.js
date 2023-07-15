@@ -69,6 +69,7 @@ export const Text = styled.p`
 
 export const Span = styled.span`
   color: ${colors.decorationLight};
+  font-weight: 300;
 `
 
 export const DateText = styled.p`

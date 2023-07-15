@@ -141,7 +141,7 @@ export default function DigNDirt({ stopHover }) {
           <Text ref={ref}>
             Created DND mobile application to optimize the efficiency of
             excavators in finding and transporting dirt, highlighting my ability
-            to identify and <Span>&nbsp;solve real-world problems&nbsp;</Span>{' '}
+            to identify and solve<Span>&nbsp;real-world problems&nbsp;</Span>{' '}
             using technology.
           </Text>
           <StackComp stack={'dnd'} />
@@ -161,8 +161,9 @@ export default function DigNDirt({ stopHover }) {
           <Text>
             Contributed to the development of EQT mobile application for
             managing inventory and maintenance of heavy machinery, utilizing my
-            technical expertise and <Span>&nbsp;teamwork skills&nbsp;</Span> to
-            ensure successful delivery of the application.
+            <Span>&nbsp;technical expertise&nbsp;</Span>and
+            <Span>&nbsp;teamwork skills&nbsp;</Span> to ensure successful
+            delivery of the application.
           </Text>
           <StackComp stack={'dnd'} />
         </TextWrap>

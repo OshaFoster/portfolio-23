@@ -20,7 +20,7 @@ export default function Footer() {
       <TextWrap>
         <Decoration/>
         <Text>
-          This <Span> portfolio </Span> was designed in <Span>Figma</Span> coded in
+          This portfolio was designed in <Span>Figma</Span> coded in
           <Span> Visual Studio Code</Span> built with <Span> NextJS </Span> and
           deployed with
           <Span> Vercel </Span>, by me.
