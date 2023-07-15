@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react';
 import Head from 'next/head';
 import styled from 'styled-components';
 import { Inter, Oswald } from 'next/font/google';
@@ -11,8 +12,8 @@ import RightHeader from 'components/RightHeader';
 import Connect from 'components/Connect';
 import Footer from 'components/Footer';
 import DigNDirt from 'components/DigNDirt';
-import { Title, DateText } from '@/styles/shared';
-import { media } from '@/styles/shared';
+import { Title, DateText, media, sizes } from '@/styles/shared';
+import classnames from 'classnames';
 // const inter = Inter({ subsets: ['latin'] });
 // const light = Oswald({ weight: '200', subsets: ['latin'] });
 
@@ -102,6 +103,27 @@ const RightContent = styled.div`
 `;
 
 export default function Home() {
+  const [windowWidth, setWindowWidth] = useState();
+
+  useEffect(() => {
+    setWindowWidth(window.innerWidth);
+  }, []);
+
+  useEffect(() => {
+    function handleResize() {
+      setWindowWidth(window?.innerWidth);
+    }
+
+    window?.addEventListener('resize', handleResize);
+
+    return () => {
+      window?.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
+  const stopHover = windowWidth < sizes.breakpoints.smallMaxWidth;
+
+  const stopHoverClass = classnames({ stopHover: stopHover});
   return (
     <>
       <Head>
@@ -119,17 +141,17 @@ export default function Home() {
           </LeftWrap>
           <RightWrap>
             <RightHeader />
-            <RightContent>
+            <RightContent >
               <Title>Freelance</Title>
               <DateText>&nbsp;Sept 2022 - Present</DateText>
-              <HilaryWatts />
-              <MeritMedical />
+              <HilaryWatts stopHover={stopHoverClass}/>
+              <MeritMedical stopHover={stopHoverClass}/>
               <Title>Stepite</Title>
               <DateText>&nbsp;July 2020 - March 2022</DateText>
               <Stepite />
               <Title>Verisage</Title>
               <DateText>&nbsp;July 2018 - July 2020</DateText>
-              <DigNDirt />
+              <DigNDirt stopHover={stopHoverClass}/>
               <Footer />
             </RightContent>
           </RightWrap>

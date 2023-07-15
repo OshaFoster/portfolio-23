@@ -11,11 +11,9 @@ import {
   TitleWrap,
   Span,
   media,
-  sizes,
 } from '@/styles/shared';
 import { motion } from 'framer-motion';
 import { Context } from '@/context/Context';
-// import { media, sizes } from '@/styles/shared';
 
 const ImageContainer = styled.div`
   display: flex;
@@ -72,13 +70,12 @@ const images = [
 
 const mapImages = (stopHover) => {
   const transformedImages = _.map(images, (img, i) => {
-    console.log(i)
     let x = 120;
     if (i % 2) {
       x = -110;
     }
     if (stopHover) {
-      x = 8;
+      x = 0;
     }
     const scale = stopHover ? 1 : 1.8;
     return (
@@ -94,11 +91,10 @@ const mapImages = (stopHover) => {
   return transformedImages;
 };
 
-export default function HilaryWatts() {
+export default function HilaryWatts({ stopHover }) {
   const scrollRef = useRef(null);
   const { inViewStack, setInViewStack } = useContext(Context);
   const [isElementVisible, setElementVisible] = useState(false);
-  const [windowWidth, setWindowWidth] = useState();
   const { ref, inView } = useInView({
     triggerOnce: false, // Optionally trigger the callback only once
     threshold: 1, // Percentage of element visibility required to trigger the callback
@@ -115,23 +111,6 @@ export default function HilaryWatts() {
     }
   }, [inView, isElementVisible, ref, setInViewStack, inViewStack]);
 
-  useEffect(() => {
-    setWindowWidth(window.innerWidth);
-  }, []);
-
-  useEffect(() => {
-    function handleResize() {
-      setWindowWidth(window?.innerWidth);
-    }
-
-    window?.addEventListener('resize', handleResize);
-
-    return () => {
-      window?.removeEventListener('resize', handleResize);
-    };
-  }, []);
-
-  const stopHover = windowWidth < sizes.breakpoints.smallMaxWidth;
   return (
     <AnimatedComponentWrap
       initial={{ opacity: 0 }}
@@ -158,7 +137,3 @@ export default function HilaryWatts() {
   );
 }
 
-// <Span>&nbsp;portfolio&nbsp;</Span>
-// <Span>&nbsp;work history&nbsp;</Span>
-// <Span>&nbsp;testimonials&nbsp;</Span>
-// <Span>&nbsp;details about her specialty&nbsp;</Span>

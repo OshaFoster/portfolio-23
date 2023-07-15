@@ -14,7 +14,6 @@ import {
   TitleWrap,
   Span,
   media,
-  sizes,
 } from '@/styles/shared';
 
 const ImageContainer = styled.div`
@@ -81,7 +80,7 @@ const hndImages = [
 
 const mapImages = (images, stopHover) => {
   const transformedImages = _.map(images, (img, i) => {
-    let x = 8;
+    let x = 0;
     if (i === 0) {
       x = 80;
     }
@@ -89,7 +88,7 @@ const mapImages = (images, stopHover) => {
       x = -80;
     }
     if (stopHover) {
-      x = 8;
+      x = 0;
     }
     const scale = stopHover ? 1 : 1.8;
     return (
@@ -105,11 +104,10 @@ const mapImages = (images, stopHover) => {
   return transformedImages;
 };
 
-export default function DigNDirt() {
+export default function DigNDirt({ stopHover }) {
   const scrollRef = useRef(null);
   const { inViewStack, setInViewStack } = useContext(Context);
   const [isElementVisible, setElementVisible] = useState(false);
-  const [windowWidth, setWindowWidth] = useState();
   const { ref, inView } = useInView({
     triggerOnce: false, // Optionally trigger the callback only once
     threshold: 1, // Percentage of element visibility required to trigger the callback
@@ -118,29 +116,13 @@ export default function DigNDirt() {
   useEffect(() => {
     if (inView) {
       setElementVisible(true);
-      // console.log('truthy');
     } else {
       setElementVisible(false);
-      // console.log('falsy');
     }
     if (isElementVisible) {
       setInViewStack('dnd');
     }
   }, [inView, isElementVisible, ref, setInViewStack, inViewStack]);
-
-  useEffect(() => {
-    function handleResize() {
-      setWindowWidth(window?.innerWidth);
-    }
-
-    window?.addEventListener('resize', handleResize);
-
-    return () => {
-      window?.removeEventListener('resize', handleResize);
-    };
-  }, []);
-
-  const stopHover = windowWidth < sizes.breakpoints.smallMaxWidth;
 
   return (
     <>
