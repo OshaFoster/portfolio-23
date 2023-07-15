@@ -12,7 +12,7 @@ export default function About() {
           with a team, and I work well solo. I am a
           <Span>&nbsp;good thinker</Span>, ask thoughtful questions, and quickly
           identify the root of a problem.
-          <Span>&nbsp;I love learning&nbsp;</Span>new skills and excel at
+          <Span>&nbsp;I love learning new skills&nbsp;</Span>and excel at
           enhancing the user experience. I have contributed to the development
           of seven apps, utilizing four different technology stacks, and
           overseeing the entire process from initial concept to deployment.
