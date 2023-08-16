@@ -15,8 +15,8 @@ export default function About() {
           <Span>&nbsp;I love learning new skills&nbsp;</Span>and excel at
           enhancing the user experience. I have contributed to the development
           of apps in industries such as medical supply, construction and data
-          analysis. Using different technology stacks and overseeing the entire process from
-          initial concept to deployment.
+          analysis. I use different technology stacks and oversee the entire
+          process from initial concept to deployment.
           <Span>&nbsp;I am excited to work with you.&nbsp;</Span>
         </Text>
       </TextWrap>
