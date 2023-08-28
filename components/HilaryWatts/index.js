@@ -38,6 +38,9 @@ const ImageContainer = styled.div`
 
 const ImageContainer2 = styled(ImageContainer)`
   height: 200px;
+  ${media.small`
+    height: 400px;
+  `}
 `;
 
 const ImageWrap = styled.div`
