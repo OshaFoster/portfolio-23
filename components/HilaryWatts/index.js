@@ -164,7 +164,6 @@ export default function HilaryWatts({ stopHover }) {
     }
   }, [inView2, isElementVisible, ref, setInViewStack, inViewStack]);
 
-  console.log(isElementVisible, inViewStack)
   return (
     <AnimatedComponentWrap
       initial={{ opacity: 0 }}
@@ -183,7 +182,7 @@ export default function HilaryWatts({ stopHover }) {
       <ImageContainer2>{mapImages2(stopHover)}</ImageContainer2>
       <TextWrap>
         <Text ref={ref}>
-          A website built for Hilary Watts to neatly display her{' '}
+          A minimalist website built for Hilary Watts to neatly display her{' '}
           <Span>&nbsp;educational and professional background</Span>,
           emphasizing her <Span>&nbsp;research skills</Span>. It provides a
           convenient means to get in touch, and it incorporates minimal
