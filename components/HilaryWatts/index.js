@@ -68,7 +68,6 @@ const Image = styled.img`
 
 const LinkTo = styled.a`
   color: ${colors.highlight};
-  font-size: 18px;
 `;
 
 const images = [
@@ -158,7 +157,7 @@ export default function HilaryWatts({ stopHover }) {
   useEffect(() => {
     if (inView2) {
       setElementVisible(true);
-    } 
+    }
     if (isElementVisible) {
       setInViewStack('hilaryWatts2');
     }
@@ -171,14 +170,13 @@ export default function HilaryWatts({ stopHover }) {
       transition={{ duration: 1 }}
       viewport={{ root: scrollRef, once: false }}
     >
-      <div>
-        <TitleWrap>
-          <ThinTitle>Hilary Watts&nbsp;–&nbsp;</ThinTitle>
-          <LinkTo target='_blank' href='https://hilarywatts.com/'>
-            hilarywatts.com
-          </LinkTo>
-        </TitleWrap>
-      </div>
+      <TitleWrap>
+        <ThinTitle>Hilary Watts&nbsp;–&nbsp;</ThinTitle>
+        <LinkTo target='_blank' href='https://hilarywatts.com/'>
+          hilarywatts.com
+        </LinkTo>
+      </TitleWrap>
+
       <ImageContainer2>{mapImages2(stopHover)}</ImageContainer2>
       <TextWrap>
         <Text ref={ref}>

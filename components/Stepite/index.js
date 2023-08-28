@@ -17,7 +17,10 @@ import { colors } from '@/styles/colors';
 
 const LinkTo = styled.a`
   color: ${colors.highlight};
-  font-size: 18px;
+`;
+
+const TitleMargin = styled.div`
+  margin-bottom: 20px;
 `;
 
 export default function Stepite() {
@@ -47,12 +50,14 @@ export default function Stepite() {
       transition={{ duration: 1 }}
       viewport={{ root: scrollRef, once: false }}
     >
-      <TitleWrap>
-        <ThinTitle>Stepite&nbsp;–&nbsp;</ThinTitle>
-        <LinkTo target='_blank' href='https://www.stepite.com/'>
-          stepite.com
-        </LinkTo>
-      </TitleWrap>
+      <TitleMargin>
+        <TitleWrap>
+          <ThinTitle>Stepite&nbsp;–&nbsp;</ThinTitle>
+          <LinkTo target='_blank' href='https://www.stepite.com/'>
+            stepite.com
+          </LinkTo>
+        </TitleWrap>
+      </TitleMargin>
       <TextWrap>
         <Text ref={ref}>
           Collaborated on a Django app processing ASIN data to
