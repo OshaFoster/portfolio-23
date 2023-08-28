@@ -13,6 +13,18 @@ export const stacks = {
     'Contentful',
   ],
 
+  hilaryWatts2: [
+    'React',
+    'NextJS',
+    'Javascript',
+    'Styled-Components',
+    'Vercel',
+    'Framer',
+    'Github',
+    'CSS',
+    'HTML',
+  ],
+
   meritMedical: [
     'React-Native Web',
     'Javascript',

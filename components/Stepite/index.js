@@ -15,11 +15,6 @@ import {
 } from '@/styles/shared';
 import { colors } from '@/styles/colors';
 
-const LinkWrap = styled.div`
-  height: 40px;
-  display: flex;
-  align-items: center;
-`;
 const LinkTo = styled.a`
   color: ${colors.highlight};
   font-size: 18px;
@@ -53,14 +48,15 @@ export default function Stepite() {
       viewport={{ root: scrollRef, once: false }}
     >
       <TitleWrap>
-        <ThinTitle>Stepite</ThinTitle>
+        <ThinTitle>Stepite&nbsp;–&nbsp;</ThinTitle>
+        <LinkTo target='_blank' href='https://www.stepite.com/'>
+          stepite.com
+        </LinkTo>
       </TitleWrap>
-      <LinkWrap>
-        <LinkTo href='https://www.stepite.com/'>Stepite.com</LinkTo>
-      </LinkWrap>
       <TextWrap>
         <Text ref={ref}>
-          Collaborated on a Django app processing ASIN data to<Span>&nbsp;generate reports&nbsp;</Span>on Amazon trends. Utilized
+          Collaborated on a Django app processing ASIN data to
+          <Span>&nbsp;generate reports&nbsp;</Span>on Amazon trends. Utilized
           Matplotlib to create<Span>&nbsp;visually appealing graphs&nbsp;</Span>{' '}
           for easy data comprehension. Built a user-friendly website with Django
           CMS to display reports. Engaged in client discussions to understand
