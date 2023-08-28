@@ -68,6 +68,7 @@ const Image = styled.img`
 
 const LinkTo = styled.a`
   color: ${colors.highlight};
+  font-size: 18px;
 `;
 
 const images = [

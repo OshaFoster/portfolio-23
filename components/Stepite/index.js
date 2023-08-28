@@ -17,6 +17,7 @@ import { colors } from '@/styles/colors';
 
 const LinkTo = styled.a`
   color: ${colors.highlight};
+  font-size: 18px;
 `;
 
 const TitleMargin = styled.div`
