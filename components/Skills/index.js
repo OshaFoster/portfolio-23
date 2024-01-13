@@ -24,7 +24,6 @@ const Item = styled.div`
 `;
 const Wrap = styled.div`
   display: inline-block;
-  /* background-color: red; */
 `;
 
 const ItemInView = styled.div`

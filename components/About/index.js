@@ -23,7 +23,3 @@ export default function About() {
     </>
   );
 }
-
-{
-  /* <Span>&nbsp;analytical skills&nbsp;</Span> */
-}

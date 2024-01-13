@@ -14,11 +14,8 @@ import Footer from 'components/Footer';
 import DigNDirt from 'components/DigNDirt';
 import { Title, DateText, media, sizes } from '@/styles/shared';
 import classnames from 'classnames';
-// const inter = Inter({ subsets: ['latin'] });
-// const light = Oswald({ weight: '200', subsets: ['latin'] });
 
 const PageWrap = styled.div`
-/* adjust on large screen */
   max-width: 1800px;
   width: 85%;
   margin: auto;
@@ -26,43 +23,36 @@ const PageWrap = styled.div`
   overflow: hidden;
   position: fixed;
   inset: 0;
-  /* background-color: white; */
   ${media.medium`
   overflow: scroll;
   padding: 40px 150px;
-  /* background-color: blue; */
   `}
   ${media.small`
   overflow: scroll;
   width: 100%;
   overflow-x: hidden;
   padding: 40px 0px;
-  /* background-color: green; */
   `}
 `;
 
 const ContentWrap = styled.div`
   display: flex;
   flex-direction: row;
-  /* background-color: pink; */
   ${media.medium`
   flex-direction: column;
   overflow: scroll;
   overflow-x: hidden;
-  /* background-color: green; */
   z-index: 1;
   `}
 `;
 
 const LeftWrap = styled.div`
   width: 32em;
-  /* background-color: yellow; */
   padding-right: 3em;
   box-sizing: border-box;
   ${media.medium`
   width: 80%;
   margin: auto;
-  /* padding-left: 1em; */
   `}
   ${media.small`
   padding-right: 0px;
@@ -77,7 +67,6 @@ const RightWrap = styled.div`
   width: 65%;
   margin: auto;
   overflow: scroll;
-  /* background-color: red; */
   box-sizing: border-box;
   padding-bottom: 100px;
   ${media.medium`
@@ -98,7 +87,6 @@ const RightContent = styled.div`
   padding-left: 9.4em;
   ${media.medium`
     padding-left: 0px;
-  /* background-color: gray; */
   `}
 `;
 
@@ -123,7 +111,7 @@ export default function Home() {
 
   const stopHover = windowWidth < sizes.breakpoints.smallMaxWidth;
 
-  const stopHoverClass = classnames({ stopHover: stopHover});
+  const stopHoverClass = classnames({ stopHover: stopHover });
   return (
     <>
       <Head>
@@ -141,17 +129,17 @@ export default function Home() {
           </LeftWrap>
           <RightWrap>
             <RightHeader />
-            <RightContent >
+            <RightContent>
               <Title>Freelance</Title>
               <DateText>&nbsp;Sept 2022 - Present</DateText>
-              <HilaryWatts stopHover={stopHoverClass}/>
-              <MeritMedical stopHover={stopHoverClass}/>
+              <HilaryWatts stopHover={stopHoverClass} />
+              <MeritMedical stopHover={stopHoverClass} />
               <Title>Stepite</Title>
               <DateText>&nbsp;July 2020 - March 2022</DateText>
               <Stepite />
               <Title>Verisage</Title>
               <DateText>&nbsp;July 2018 - July 2020</DateText>
-              <DigNDirt stopHover={stopHoverClass}/>
+              <DigNDirt stopHover={stopHoverClass} />
               <Footer />
             </RightContent>
           </RightWrap>

@@ -23,7 +23,6 @@ const ImageContainer = styled.div`
   width: 600px;
   height: 400px;
   margin-top: 20px;
-  /* background-color: pink; */
   ${media.small`
     flex-direction: column;
     width: 100%;
@@ -58,7 +57,6 @@ const ImageWrap = styled.div`
       z-index: 1;
     `}
   }
-  /* background-color: orange; */
 `;
 
 const AnimatedImage = motion(ImageWrap);
@@ -142,8 +140,8 @@ export default function HilaryWatts({ stopHover }) {
   });
 
   const { ref2, inView2 } = useInView({
-    triggerOnce: false, // Optionally trigger the callback only once
-    threshold: 1, // Percentage of element visibility required to trigger the callback
+    triggerOnce: false, 
+    threshold: 1, 
   });
 
   useEffect(() => {

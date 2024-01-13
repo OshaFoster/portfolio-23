@@ -23,7 +23,6 @@ const ImageContainer = styled.div`
   width: 600px;
   height: 400px;
   margin-top: 20px;
-  /* background-color: pink; */
   ${media.small`
   flex-direction: column;
     width: 100%;
@@ -44,7 +43,6 @@ const ImageWrap = styled.div`
   border-radius: 23px;
   margin-right: 40px;
   transition: transform 0.4s ease-in-out;
-  /* background-color: orange; */
 
   &:hover {
     z-index: 10;

@@ -7,7 +7,6 @@ import { colors } from '@/styles/colors'
 const HeaderWrap = styled.div`
   box-sizing: border-box;
   height: 200px;
-  /* background-color: blue; */
 `;
 
 const Name = styled.h1`

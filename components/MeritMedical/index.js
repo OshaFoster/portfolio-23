@@ -27,7 +27,6 @@ const ImageContainer = styled.div`
   width: 600px;
   height: 400px;
   margin-top: 20px;
-  /* background-color: pink; */
   ${media.small`
   flex-direction: column;
     width: 100%;
