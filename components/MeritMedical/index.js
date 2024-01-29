@@ -73,6 +73,7 @@ const images = [
 
 const mapImages = (stopHover) => {
   const transformedImages = _.map(images, (img, i) => {
+// adjust x position for the first and last image
     let x = 120;
     if (i % 2) {
       x = -140;

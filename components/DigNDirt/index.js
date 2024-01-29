@@ -78,6 +78,7 @@ const hndImages = [
 
 const mapImages = (images, stopHover) => {
   const transformedImages = _.map(images, (img, i) => {
+    // adjust x position for the first and last image
     let x = 0;
     if (i === 0) {
       x = 80;
@@ -130,13 +131,13 @@ export default function DigNDirt({ stopHover }) {
         transition={{ duration: 1 }}
         viewport={{ root: scrollRef, once: false }}
       >
-        <TitleWrap>
+        <TitleWrap ref={ref}>
           <ThinTitle>DigNDirt</ThinTitle>
         </TitleWrap>
         <ImageContainer>{mapImages(dndImages, stopHover)}</ImageContainer>
 
         <TextWrap>
-          <Text ref={ref}>
+          <Text>
             Created DND mobile application to optimize the efficiency of
             excavators in finding and transporting dirt, highlighting my ability
             to identify and solve<Span>&nbsp;real-world problems&nbsp;</Span>{' '}

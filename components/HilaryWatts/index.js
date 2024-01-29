@@ -86,6 +86,7 @@ const images2 = [
 
 const mapImages = (stopHover) => {
   const transformedImages = _.map(images, (img, i) => {
+    // adjust x position for the first and last image
     let x = 120;
     if (i % 2) {
       x = -120;
@@ -109,6 +110,7 @@ const mapImages = (stopHover) => {
 
 const mapImages2 = (stopHover) => {
   const transformedImages = _.map(images2, (img, i) => {
+    // adjust x position for the first and last image
     let x = 120;
     if (i % 2) {
       x = -120;
@@ -140,8 +142,8 @@ export default function HilaryWatts({ stopHover }) {
   });
 
   const { ref2, inView2 } = useInView({
-    triggerOnce: false, 
-    threshold: 1, 
+    triggerOnce: false,
+    threshold: 1,
   });
 
   useEffect(() => {

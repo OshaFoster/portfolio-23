@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import Head from 'next/head';
 import styled from 'styled-components';
-import { Inter, Oswald } from 'next/font/google';
 import MeritMedical from 'components/MeritMedical';
 import HilaryWatts from 'components/HilaryWatts';
 import Stepite from 'components/Stepite';
@@ -65,8 +64,8 @@ const LeftWrap = styled.div`
 const RightWrap = styled.div`
   height: 100vh;
   width: 65%;
-  margin: auto;
-  overflow: scroll;
+  overflow-y: scroll;
+  overflow-x: hidden;
   box-sizing: border-box;
   padding-bottom: 100px;
   ${media.medium`
@@ -93,10 +92,12 @@ const RightContent = styled.div`
 export default function Home() {
   const [windowWidth, setWindowWidth] = useState();
 
+  // set window width on load
   useEffect(() => {
     setWindowWidth(window.innerWidth);
   }, []);
 
+  // set window width on resize
   useEffect(() => {
     function handleResize() {
       setWindowWidth(window?.innerWidth);
@@ -109,9 +110,11 @@ export default function Home() {
     };
   }, []);
 
+  // stop hover annimation on mobile
   const stopHover = windowWidth < sizes.breakpoints.smallMaxWidth;
 
   const stopHoverClass = classnames({ stopHover: stopHover });
+
   return (
     <>
       <Head>

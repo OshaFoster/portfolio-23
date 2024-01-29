@@ -44,8 +44,7 @@ export const Title = styled.h1`
   font-weight: 400;
   margin-block-start: 0em;
   margin-block-end: 0em;
-  margin-top: 60px;
-  /* background-color: red; */
+  margin-top: 40px;
 `;
 
 export const ThinTitle = styled.h2`
@@ -54,7 +53,6 @@ export const ThinTitle = styled.h2`
   font-weight: 300;
   margin-block-start: 0em;
   margin-block-end: 0em;
-  /* background-color: green; */
 `;
 
 export const Text = styled.p`
@@ -64,7 +62,6 @@ export const Text = styled.p`
   font-weight: 200;
   margin-block-start: 0em;
   margin-block-end: 0em;
-    /* background-color: green;      */
 `;
 
 export const Span = styled.span`
@@ -84,15 +81,14 @@ export const DateText = styled.p`
 
 export const TextWrap = styled.div`
   max-width: 570px;
-    /* background-color: red; */
 `;
 
 export const Decoration = styled.div`
 height: 2px;
 width: 70px;
 background-color: ${colors.decoration};
-margin-bottom: 30px;
-margin-top: 15px;
+margin-bottom: 20px;
+margin-top: 10px;
 transition: background-color 0.3s ease-in-out;
 
 &:hover {

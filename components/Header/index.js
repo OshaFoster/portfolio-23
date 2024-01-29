@@ -13,6 +13,7 @@ const Name = styled.h1`
   font-size: 62px;
   color: ${colors.text};
   font-weight: 400;
+  padding-bottom: 10px;
   margin-block-start: 0em;
   margin-block-end: 0em;
 `;
