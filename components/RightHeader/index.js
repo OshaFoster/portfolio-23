@@ -16,7 +16,7 @@ const StickyWrap = styled.div`
   z-index: 2;
   width: 100%;
   padding-left: 9.4em;
-  padding-top: 90px;
+  padding-top: 102px;
  ${media.medium `
   padding-left: 0px;
  `}
