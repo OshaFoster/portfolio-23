@@ -24,10 +24,9 @@ const PageWrap = styled.div`
   inset: 0;
   ${media.medium`
   overflow: scroll;
-  padding: 40px 150px;
+  padding: 40px auto;
   `}
   ${media.small`
-  overflow: scroll;
   width: 100%;
   overflow-x: hidden;
   padding: 40px 0px;
@@ -110,7 +109,7 @@ export default function Home() {
     };
   }, []);
 
-  // stop hover annimation on mobile
+  // stop hover annimation on mobile using window width
   const stopHover = windowWidth < sizes.breakpoints.smallMaxWidth;
 
   const stopHoverClass = classnames({ stopHover: stopHover });

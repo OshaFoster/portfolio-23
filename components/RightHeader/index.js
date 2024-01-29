@@ -11,7 +11,7 @@ import { media } from '@/styles/shared';
 const StickyWrap = styled.div`
   position: sticky;
   top: 0;
-  height: 50px;
+  height: 112px;
   background-color: black;
   z-index: 2;
   width: 100%;
